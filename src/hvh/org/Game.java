@@ -17,30 +17,33 @@ class Game {
     public final static int NUM_HUNTED = 1;
     public final static int NUM_HUNTER = 2;
     
-    private boolean inLobby;
+    public boolean inLobby;
+    
     private List<Player> hunters;
     private List<Player> hunteds;
     
     public Game() {
         inLobby = true;
+        waitingToStart = false;
         
         hunters = new ArrayList();
         hunteds = new ArrayList();
     }
     
-    // call this function repeatedly
-    public void checkPlayers() {
-        if (inLobby) {
-            start();
-        }
-    }
-    
     public void start() {
         inLobby = false;
+        waitingToStart = false;
         
         // TODO 
         // tp to hvh world
         // set spawn
+	announce("the game is starting");
+    }
+
+    private void checkReady() {
+    	if (!needsHunted() && !needsHunter()) {
+	    waitingToStart = true;
+	}
     }
     
     private boolean needsHunted() {
@@ -56,6 +59,7 @@ class Game {
         
 	if (needsHunted()) {
             hunteds.add(player);
+	    checkReady();
             return true;
         }
         return false;
@@ -66,9 +70,16 @@ class Game {
 
         if (needsHunter()) {
             hunters.add(player);
+	    checkReady();
             return true;
         }
         return false;
+    }
+
+    public void announce(String string) {
+    	for (Player player : players) {
+	    player.sendMessage("HvH: " + string);
+	}
     }
     
 }

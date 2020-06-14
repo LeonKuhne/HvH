@@ -19,7 +19,11 @@ public class Hub {
     }
 
     private boolean tryStartGames() {
-    	games
+    	for (Game game : games) {
+	    if (game.waitingToStart) {
+	    	game.start();
+	    }
+	}
     }
 
     public void joinGame(Player player, String team) {
