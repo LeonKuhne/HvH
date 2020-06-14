@@ -50,7 +50,7 @@ public class Main extends JavaPlugin {
                 
                 if (hub == null) {
                     if (args[0].equals("create")) {
-                        hub = new Hub(player.getLocation());
+                        hub = new Hub(this, player.getLocation());
                         player.sendMessage("HvH Hub Created!");
                     } else {
                         player.sendMessage("No hub exists yet. Type '/hvh create' to start");
