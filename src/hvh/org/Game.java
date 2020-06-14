@@ -52,7 +52,9 @@ class Game {
     }
     
     public boolean addHunted(Player player) {
-        if (needsHunted()) {
+	player.sendMessage("you are now the hunted");
+        
+	if (needsHunted()) {
             hunteds.add(player);
             return true;
         }
@@ -60,6 +62,8 @@ class Game {
     }
     
     public boolean addHunter(Player player) {
+	player.sendMessage("you are now a hunter");
+
         if (needsHunter()) {
             hunters.add(player);
             return true;
