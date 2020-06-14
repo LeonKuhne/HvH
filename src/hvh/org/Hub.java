@@ -53,9 +53,11 @@ public class Hub {
 		}
             case "setspawn":
                 setSpawn(player.getLocation());
+		player.sendMessage("setting hub spawn");
                 break;
             case "spawn":
                 spawn(player);
+		player.sendMessage("teleporting to hub");
                 break;
             default:
 		player.sendMessage("cmds: join, spawn, setspawn");
@@ -70,11 +72,7 @@ public class Hub {
     }
     
     public void spawn(Player player) {
-        Location loc = player.getLocation();
-        loc.setWorld(spawn.getWorld());
-        loc.setX(spawn.getX());
-        loc.setY(spawn.getY());
-        loc.setZ(spawn.getZ());
+	player.teleport(spawn);
     }
     
 }
