@@ -30,7 +30,7 @@ public class Hub {
     }
 
     public boolean joinGame(Player player, String team) {
-    	Game game = findGame(player, team);
+    	Game game = findGame(team);
 	
 	// if none found, create
 	if (game == null) {
