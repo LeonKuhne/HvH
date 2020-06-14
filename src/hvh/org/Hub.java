@@ -52,12 +52,12 @@ public class Hub {
 	}
     }
 
-    public Game findGame(Player player, String team) {
+    public Game findGame(String team) {
         switch (team) {
             
 	    case "hunted":
                 for (Game game : games) {
-                    if (game.needsHunted(player)) {
+                    if (game.needsHunted()) {
                         return game;
                     }
                 }
@@ -65,7 +65,7 @@ public class Hub {
             
 	    case "hunter":
 		for (Game game : games) {
-                    if (game.needsHunter(player)) {
+                    if (game.needsHunter()) {
                         return game;
                     }
                 }
