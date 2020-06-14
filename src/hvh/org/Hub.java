@@ -55,30 +55,26 @@ public class Hub {
 
     public boolean findGame(Player player, String team) {
         switch (team) {
-            case "hunted":
-
-		// find a game
+            
+	    case "hunted":
                 for (Game game : games) {
-                    if (game.addHunted(player)) {
-                        return true;
+                    if (game.needsHunted(player)) {
+                        return game;
                     }
                 }
-
                 break;
-            case "hunter":
-                
+            
+	    case "hunter":
 		for (Game game : games) {
-                    if (game.addHunter(player)) {
-                        return true;
+                    if (game.needsHunter(player)) {
+                        return game;
                     }
                 }
 		
                 break;
-            default:
-                return false;
         }
 
-        return true;
+        return null;
     }
     
     public boolean parseCommand(Player player, List<String> args) {
