@@ -1,0 +1,15 @@
+name: HunterVsHunted
+version: 0.1
+description: Hunter vs Hunted
+author: Leee Leee
+website: denmc.online
+
+main: hvh.org.Main
+
+commands:
+    hvh:
+        description: Hunter vs Hunted
+        permission: spigotplugin.hvh
+        usage: /<command>
+
+permissions: {}
