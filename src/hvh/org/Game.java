@@ -18,6 +18,7 @@ class Game {
     public final static int NUM_HUNTER = 2;
     
     public boolean inLobby;
+    public boolean waitingToStart;
     
     private List<Player> hunters;
     private List<Player> hunteds;
