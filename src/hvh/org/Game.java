@@ -77,9 +77,14 @@ class Game {
         return false;
     }
 
-    public void announce(String string) {
-    	for (Player player : players) {
-	    player.sendMessage("HvH: " + string);
+    public void announce(String message) {
+	tellGroup(hunters, message);	
+	tellGroup(hunteds, message);	
+    }
+
+    public void tellGroup(List<Player> group, String message) {
+    	for (Player player : group) {
+	    player.sendMessage("HvH: " + message);
 	}
     }
     
