@@ -28,7 +28,7 @@ echo -e "$src_files" | awk '{ print "compiling... " $0 }'
 echo -en "\e[32m"
 
 # add config to jar (plugin.yml)
-jar -cf "$hvh_dist/HVH.jar" plugin.yml
+jar -cf "$hvh_dist/HvH.jar" plugin.yml
 
 # create .class files
 javac -cp $hvh_lib/*.jar $src_files -d $hvh_build
