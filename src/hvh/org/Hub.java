@@ -21,7 +21,7 @@ public class Hub {
 	games = new ArrayList();
     }
 
-    private boolean tryStartGames() {
+    private void tryStartGames() {
     	for (Game game : games) {
 	    if (game.waitingToStart) {
 	    	game.start();
