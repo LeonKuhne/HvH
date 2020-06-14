@@ -1,7 +1,7 @@
 package hvh.org;
 
 import java.util.List;
-import org.bukkit.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -27,13 +27,6 @@ public class Hub {
 	}
     }
 
-    public void joinGame(Player player, String team) {
-	Game game = new Game();
-	
-
-	games.add(game);
-    }
-    
     public boolean joinGame(Player player, String team) {
     	Game game = findGame(player, team);
 	
