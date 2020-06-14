@@ -1,6 +1,7 @@
 package hvh.org;
 
 import java.util.List;
+import org.bukkit.Plugin;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
