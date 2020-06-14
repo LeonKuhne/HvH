@@ -52,12 +52,14 @@ public class Main extends JavaPlugin {
                     if (args[0].equals("create")) {
                         hub = new Hub(player.getLocation());
                         player.sendMessage("HvH Hub Created!");
-                    } else if (args[0].equals("delete")) {
-                        player.sendMessage("Hub has been deleted");
                     } else {
                         player.sendMessage("No hub exists yet. Type '/hvh create' to start");
                     }
-                    
+                    return true;
+		}
+		
+		if (args[0].equals("delete")) {
+                    player.sendMessage("Hub has been deleted");
                     return true;
                 } else if (hub.parseCommand(player, new ArrayList(Arrays.asList(args)))) {
                     return true;
