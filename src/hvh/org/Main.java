@@ -43,7 +43,9 @@ public class Main extends JavaPlugin {
             // is command hvh && player has permissions
             player.sendMessage("entered: " + string);
             if (player.isOp() && string.equals("hvh")) {
-                player.sendMessage("command not implemented yet");
+                if (args.length <= 0) {
+		    player.sendMessage("type '/hvh create' to start");
+		}
                 
                 if (hub != null) {
                     if (args[0].equals("create")) {
