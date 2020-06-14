@@ -29,7 +29,7 @@ public class Hub {
 	}
     }
 
-    public boolean joinGame(Player player, String team) {
+    public void joinGame(Player player, String team) {
     	Game game = findGame(team);
 	
 	// if none found, create
@@ -82,7 +82,8 @@ public class Hub {
         switch (cmd) {
             case "join":
 		if (args.size() > 0) {
-                    return joinGame(player, args.get(0));
+                    joinGame(player, args.get(0));
+		    return true;
 		} else {
 		    player.sendMessage("cmd: /hvh join [hunter/hunted]");
 		}
