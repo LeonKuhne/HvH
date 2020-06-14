@@ -48,7 +48,7 @@ public class Hub {
 		if (args.size() > 0) {
                     return joinGame(player, args.get(0));
 		} else {
-		    player.sendMessage("cmd: /hvh hub join [name]")
+		    player.sendMessage("cmd: /hvh hub join [name]");
 		}
             case "setspawn":
                 setSpawn(player.getLocation());
