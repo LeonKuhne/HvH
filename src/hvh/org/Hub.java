@@ -34,7 +34,7 @@ public class Hub {
 	
 	// if none found, create
 	if (game == null) {
-	    game = createGame(player, team);
+	    game = new Game();
 	    games.add(game);
 	}
 
