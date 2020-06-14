@@ -34,6 +34,7 @@ public class Hub {
                 }
                 break;
             default:
+		player.sendMessage("you must join the team either 'hunter' or 'hunted'");
                 return false;
         }
         
@@ -48,7 +49,7 @@ public class Hub {
 		if (args.size() > 0) {
                     return joinGame(player, args.get(0));
 		} else {
-		    player.sendMessage("cmd: /hvh hub join [name]");
+		    player.sendMessage("cmd: /hvh join [hunter/hunted]");
 		}
             case "setspawn":
                 setSpawn(player.getLocation());
