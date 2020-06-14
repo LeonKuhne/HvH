@@ -45,6 +45,7 @@ public class Main extends JavaPlugin {
             if (player.isOp() && string.equals("hvh")) {
                 if (args.length <= 0) {
 		    player.sendMessage("type '/hvh create' to start");
+		    return true;
 		}
                 
                 if (hub == null) {
