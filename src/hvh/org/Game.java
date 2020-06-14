@@ -47,11 +47,11 @@ class Game {
 	}
     }
     
-    private boolean needsHunted() {
+    public boolean needsHunted() {
         return hunteds.size() < NUM_HUNTED;
     }
     
-    private boolean needsHunter() {
+    public boolean needsHunter() {
         return hunters.size() < NUM_HUNTER;
     }
     

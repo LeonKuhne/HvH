@@ -50,10 +50,9 @@ public class Hub {
 		player.sendMessage("you must join the team either 'hunter' or 'hunted'");
 		break;
 	}
-	
     }
 
-    public boolean findGame(Player player, String team) {
+    public Game findGame(Player player, String team) {
         switch (team) {
             
 	    case "hunted":
