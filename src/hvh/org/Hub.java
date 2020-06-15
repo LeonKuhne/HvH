@@ -83,11 +83,11 @@ public class Hub {
             case "join":
                 // check if player already in game
                 if (player.inGame()) {
-                    player.sendMessage("sir. you are already in a game");
+                    help(player, "sir. you are already in a game");
                 } else if (args.size() > 0) {
                     // add player to a game
                     String team = args[0];                                      // team the player wants to be on
-                    player.setTeam(team);                                       // set the players team
+                    player.joinTeam(team);                                      // set the players team
                     hplayer.joinGame();                                         // add player to game lobby
 		            return true;
 		        } else {
