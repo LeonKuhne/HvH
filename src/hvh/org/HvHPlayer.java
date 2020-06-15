@@ -3,7 +3,7 @@ package hvh.org;
 import java.util.List;
 import org.bukkit.entity.Player;
 
-public class HvHPlayer {
+public class HvHPlayer implements Player {
 
     private List<Game> games;
     protected Game currGame;
