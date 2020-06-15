@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
         Util.saveHub(hub);
     }
 
-    private void help(message) {
+    private void help(String message) {
         player.sendMessage("[HvH] " + message);
     }
 
