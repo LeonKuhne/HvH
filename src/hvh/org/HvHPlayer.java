@@ -2,6 +2,7 @@ package hvh.org;
 
 import java.util.List;
 import org.bukkit.entity.Player;
+import org.bukkit.Location;
 
 public class HvHPlayer {
 
