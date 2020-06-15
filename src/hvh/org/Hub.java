@@ -86,10 +86,9 @@ public class Hub {
                     help(player, "sir. you are already in a game");
                 } else if (args.size() > 0) {
                     // add player to a game
-                    String team = args[0];                                      // team the player wants to be on
+                    String team = args.get(0);                                      // team the player wants to be on
                     player.joinTeam(team);                                      // set the players team
-                    hplayer.joinGame();                                         // add player to game lobby
-		            return true;
+                    player.joinGame();                                         // add player to game lobby
 		        } else {
                     help(player, "you must specify a team: /hvh join [hunter/hunted]");
 		        }
