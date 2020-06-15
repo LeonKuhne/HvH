@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public class Hub {
     
     List<Game> games;
-    List<Player> admins;
+    List<HvHPlayer> admins;
     Location spawn;
     
     public Hub(Plugin plugin, Player player) {
@@ -46,21 +46,21 @@ public class Hub {
         }
     }
 
-    public void parseAdminCommand(Player admin, List<String> args) {
+    public void parseAdminCommand(HvHPlayer admin, List<String> args) {
         if (args.size() >= 1) {
             String cmd = args.remove(0);
 
             switch (cmd) {
                 case "tp":
-	                player.teleport(spawn);
+	                admin.teleport(spawn);
 		            help("teleported to hub");
                     return;
                 case "setspawn":
-                    setSpawn(player);
+                    setSpawn(admin);
                     return;
                 case "subscribe":
-                    if (!subscribers.contains(player)) {
-                        subscribers.add(player);
+                    if (!subscribers.contains(admin)) {
+                        subscribers.add(admin);
                         tell("spawn set");
                     }
                     return;
