@@ -56,7 +56,7 @@ public class Hub {
             switch (cmd) {
                 case "tp":
 	                admin.teleport(spawn);
-		            help("teleported to hub");
+		            help(admin, "teleported to hub");
                     return;
                 case "setspawn":
                     setSpawn(admin);
@@ -68,11 +68,11 @@ public class Hub {
                     }
                     return;
                default:
-                    help("unknown command \"" + cmd + "\"" );
+                    help(admin, "unknown command \"" + cmd + "\"" );
             }
         }
 
-        help("admin commands: spawn/tp, setspawn, subscribe");
+        help(admin, "admin commands: spawn/tp, setspawn, subscribe");
     }
     
     public void parseCommand(Player normie, List<String> args) {
@@ -91,7 +91,7 @@ public class Hub {
                     hplayer.joinGame();                                         // add player to game lobby
 		            return true;
 		        } else {
-                    help("you must specify a team: /hvh join [hunter/hunted]");
+                    help(player, "you must specify a team: /hvh join [hunter/hunted]");
 		        }
 		        return;
 	        case "leave":
@@ -101,10 +101,10 @@ public class Hub {
                 parseAdminCommand(player, args);
                 return;
             default:
-                help("unknown command " + cmd);
+                help(player, "unknown command " + cmd);
         }
         
-		help("available commands: join, spawn, setspawn");
+		help(player, "available commands: join, spawn, setspawn");
     }
     
     public void setSpawn(Player player) {
