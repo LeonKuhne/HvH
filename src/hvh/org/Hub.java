@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public class Hub {
     
     List<Game> games;
-    List<Game> admins;
+    List<Player> admins;
     Location spawn;
     
     public Hub(Plugin plugin, Player player) {
