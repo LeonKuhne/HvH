@@ -47,7 +47,7 @@ public class Hub {
     }
 
     public void parseAdminCommand(Player admin, List<String> args) {
-        if (args.length >= 1) {
+        if (args.size() >= 1) {
             String cmd = args.remove(0);
 
             switch (cmd) {
