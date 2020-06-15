@@ -35,7 +35,7 @@ public class HvHPlayer {
     }
 
     public void joinTeam(String team) {
-        this.team = team
+        this.team = team;
         msg("you are a " + team);
     }
 
