@@ -1,5 +1,6 @@
 package hvh.org;
 
+import java.util.List;
 import org.bukkit.entity.Player;
 
 public class HvHPlayer {

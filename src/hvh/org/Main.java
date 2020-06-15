@@ -34,7 +34,7 @@ public class Main extends JavaPlugin {
     /**
      * Called on any /hvh command
      */
-    private void hvhHandler(Player player, Command cmd, String[] args) {
+    private void hvhHandler(Player player, String[] args) {
         if (hub == null) {
             String cmd = args.length >= 0 ? args[0] : null; 
             
@@ -66,7 +66,7 @@ public class Main extends JavaPlugin {
             
             // command is hvh && player has permissions
             if (player.isOp() && string.equals("hvh")) {
-                hvhHandler(player, command, args);
+                hvhHandler(player, args);
                 return true;
             }
 		}
