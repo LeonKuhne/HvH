@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 class Game {
     
     public final static int NUM_HUNTED = 1;
-    public final static int NUM_HUNTER = 2;
+    public final static int NUM_HUNTER = 1;
     
     public boolean inLobby;
     public boolean waitingToStart;
