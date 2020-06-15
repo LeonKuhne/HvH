@@ -55,7 +55,7 @@ class Game {
         return hunters.size() < NUM_HUNTER;
     }
     
-    public boolean needsPlayer(Player player) {
+    public boolean needsPlayer(HvHPlayer player) {
         player.tryJoin(game);
     	switch(player.team) {
             case "hunter":
@@ -82,8 +82,8 @@ class Game {
 	    tellGroup(hunteds, message);	
     }
 
-    public void tellGroup(List<Player> group, String message) {
-    	for (Player player : group) {
+    public void tellGroup(List<HvHPlayer> group, String message) {
+    	for (HvHPlayer player : group) {
 	        player.sendMessage("HvH: " + message);
 	    }
     }
