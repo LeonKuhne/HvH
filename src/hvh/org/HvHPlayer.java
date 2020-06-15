@@ -31,16 +31,19 @@ public class HvHPlayer {
 	        	game.remove(player);
 	        }
 	    }
-    
         msg("you left the game");
+    }
+
+    public void joinTeam(String team) {
+        this.team = team
+        msg("you are a " + team);
     }
 
     private void joinGame() {
        Game game = findOrCreateGame();
        game.addPlayer(this);
        currGame = game;
-       
-       msg("you joined as a " + team);
+       msg("you joined the game as a " + team);
     }
     
     private Game findOrCreateGame() {
