@@ -1,3 +1,7 @@
+package hvh.org;
+
+import java.util.List;
+
 public class Hunted extends HvHPlayer {
 
     private List<Game> games;

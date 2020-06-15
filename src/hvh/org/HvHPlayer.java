@@ -1,3 +1,5 @@
+package hvh.org;
+
 import org.bukkit.entity.Player;
 
 public class HvHPlayer extends Player {
