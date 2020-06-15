@@ -69,7 +69,7 @@ public class Hub {
             }
         }
 
-        help("admin commands: spawn/tp, setspawn, subscribe")
+        help("admin commands: spawn/tp, setspawn, subscribe");
     }
     
     public void parseCommand(Player normie, List<String> args) {

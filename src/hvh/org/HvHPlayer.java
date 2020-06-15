@@ -3,7 +3,7 @@ import org.bukkit.entity.Player;
 public class HvHPlayer extends Player {
 
     private List<Game> games;
-    protected currGame;
+    protected Game currGame;
     public Player player;
     public String team;
 
