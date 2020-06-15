@@ -2,7 +2,7 @@ package hvh.org;
 
 import org.bukkit.entity.Player;
 
-public class HvHPlayer extends Player {
+public class HvHPlayer {
 
     private List<Game> games;
     protected Game currGame;
@@ -30,7 +30,7 @@ public class HvHPlayer extends Player {
 	        	game.remove(player);
 	        }
 	    }
-
+    
         msg("you left the game");
     }
 
@@ -42,7 +42,6 @@ public class HvHPlayer extends Player {
        msg("you joined as a " + team);
     }
     
-
     private Game findOrCreateGame() {
         // find
         for (Game game : games) {
