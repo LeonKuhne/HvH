@@ -48,7 +48,7 @@ public class HvHPlayer {
         msg("you are a " + team);
     }
 
-    private void joinGame() {
+    public void joinGame() {
        Game game = findOrCreateGame();
        game.addPlayer(this);
        currGame = game;
