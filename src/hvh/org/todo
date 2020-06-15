@@ -1,2 +1,6 @@
 /hvh leave
 /hvh join // already in a game
+
+// teleport the players to a random, unvisited location by spreading the players
+// set the spawn whereever the players begin
+

@@ -9,106 +9,103 @@ import org.bukkit.entity.Player;
 
 /**
  * @author Leee Leee
+ * Assigns players to hunter/hunted classes and manages players and games
  */
 public class Hub {
     
     List<Game> games;
+    List<Game> admins;
     Location spawn;
     
-    public Hub(Plugin plugin, Location spawn) {
-        this.spawn = spawn;
-        plugin.getServer().getScheduler().runTaskTimer(plugin, () -> tryStartGames(), 50l, 1000l);
-	games = new ArrayList();
+    public Hub(Plugin plugin, Player player) {
+	    games = new ArrayList();
+	    admins = new ArrayList();
+        setSpawn(player);
+        
+        plugin.getServer().getScheduler().runTaskTimer(plugin, () -> tryStartGames(), 50l, 100l);
     }
 
     private void tryStartGames() {
     	for (Game game : games) {
-	    if (game.waitingToStart) {
-	    	game.start();
-	    }
-	}
+	        if (game.waitingToStart) {
+	        	game.start();
+	        }
+    	}
     }
 
-    public void joinGame(Player player, String team) {
-    	Game game = findGame(team);
-	
-	// if none found, create
-	if (game == null) {
-	    game = new Game();
-	    games.add(game);
-	}
-
-	// add player to game
-	switch (team) {
-	    case "hunted":
-		game.addHunted(player);
-		break;
-	    case "hunter":
-		game.addHunter(player);
-		break;
-            default:
-		player.sendMessage("you must join the team either 'hunter' or 'hunted'");
-		break;
-	}
+    /**
+     * Print a help message to a user
+     */
+    private void help(Player player, String message) {
+        player.sendMessage("$5[HvH Hub]$f " + message);
     }
 
-    public Game findGame(String team) {
-        switch (team) {
-            
-	    case "hunted":
-                for (Game game : games) {
-                    if (game.needsHunted()) {
-                        return game;
+    private void tell(String message) {
+        for (Player admin : admins) {
+            help(admin, message);
+        }
+    }
+
+    public void parseAdminCommand(Player admin, List<String> args) {
+        if (args.length >= 1) {
+            String cmd = args.remove(0);
+
+            switch (cmd) {
+                case "tp":
+	                player.teleport(spawn);
+		            help("teleported to hub");
+                    return;
+                case "setspawn":
+                    setSpawn(player);
+                    return;
+                case "subscribe":
+                    if (!subscribers.contains(player)) {
+                        subscribers.add(player);
+                        tell("spawn set");
                     }
-                }
-                break;
-            
-	    case "hunter":
-		for (Game game : games) {
-                    if (game.needsHunter()) {
-                        return game;
-                    }
-                }
-		
-                break;
+                    return;
+               default:
+                    help("unknown command \"" + cmd + "\"" );
+            }
         }
 
-        return null;
+        help("admin commands: spawn/tp, setspawn, subscribe")
     }
     
-    public boolean parseCommand(Player player, List<String> args) {
+    public void parseCommand(Player normie, List<String> args) {
+        HvHPlayer player = new HvHPlayer(normie, games);
         String cmd = args.remove(0);
         
         switch (cmd) {
             case "join":
-		if (args.size() > 0) {
-                    joinGame(player, args.get(0));
-		    return true;
-		} else {
-		    player.sendMessage("cmd: /hvh join [hunter/hunted]");
-		}
-            case "setspawn":
-		player.sendMessage("setting hub spawn");
-                setSpawn(player.getLocation());
-                break;
-            case "spawn":
-		player.sendMessage("teleporting to hub");
-                spawn(player);
-                break;
+                // check if player already in game
+                if (player.inGame()) {
+                    player.sendMessage("sir. you are already in a game");
+                } else if (args.size() > 0) {
+                    // add player to a game
+                    String team = args[0];                                      // team the player wants to be on
+                    player.setTeam(team);                                       // set the players team
+                    hplayer.joinGame();                                         // add player to game lobby
+		            return true;
+		        } else {
+                    help("you must specify a team: /hvh join [hunter/hunted]");
+		        }
+		        return;
+	        case "leave":
+                player.leaveGame();
+                return;
+            case "admin":
+                parseAdminCommand(player, args);
+                return;
             default:
-		player.sendMessage("cmds: join, spawn, setspawn");
-                return false;
+                help("unknown command " + cmd);
         }
         
-        return true;
+		help("available commands: join, spawn, setspawn");
     }
     
-    public void setSpawn(Location location) {
-        spawn = location;
+    public void setSpawn(Player player) {
+        spawn = player.getLocation();
+        
     }
-    
-    public void spawn(Player player) {
-	player.teleport(spawn);
-    }
-
 }

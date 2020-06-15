@@ -20,8 +20,8 @@ class Game {
     public boolean inLobby;
     public boolean waitingToStart;
     
-    private List<Player> hunters;
-    private List<Player> hunteds;
+    private List<HvHPlayer> hunters;
+    private List<HvHPlayer> hunteds;
     
     public Game() {
         inLobby = true;
@@ -38,13 +38,13 @@ class Game {
         // TODO 
         // tp to hvh world
         // set spawn
-	announce("the game is starting");
+	    announce("the game is starting");
     }
 
     private void checkReady() {
     	if (!needsHunted() && !needsHunter()) {
-	    waitingToStart = true;
-	}
+	        waitingToStart = true;
+	    }
     }
     
     public boolean needsHunted() {
@@ -55,37 +55,37 @@ class Game {
         return hunters.size() < NUM_HUNTER;
     }
     
-    public boolean addHunted(Player player) {
-	player.sendMessage("you are now the hunted");
-        
-	if (needsHunted()) {
-            hunteds.add(player);
-	    checkReady();
-            return true;
+    public boolean needsPlayer(Player player) {
+        player.tryJoin(game)
+    	switch(player.team) {
+            case "hunter":
+                return needsHunter();
+            case "hunted":
+                return needsHunted();
+            default:
+                return false;
         }
-        return false;
     }
     
-    public boolean addHunter(Player player) {
-	player.sendMessage("you are now a hunter");
-
-        if (needsHunter()) {
+    public boolean addPlayer(HvHPlayer player) {
+        if (needsPlayer()) {
             hunters.add(player);
-	    checkReady();
+	        checkReady();
             return true;
         }
         return false;
     }
 
+
     public void announce(String message) {
-	tellGroup(hunters, message);	
-	tellGroup(hunteds, message);	
+	    tellGroup(hunters, message);	
+	    tellGroup(hunteds, message);	
     }
 
     public void tellGroup(List<Player> group, String message) {
     	for (Player player : group) {
-	    player.sendMessage("HvH: " + message);
-	}
+	        player.sendMessage("HvH: " + message);
+	    }
     }
     
 }

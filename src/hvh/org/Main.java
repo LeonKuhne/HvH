@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hvh.org;
 
 import java.util.ArrayList;
@@ -32,6 +27,36 @@ public class Main extends JavaPlugin {
         Util.saveHub(hub);
     }
 
+    private void help(message) {
+        player.sendMessage("[HvH] " + message);
+    }
+
+    /**
+     * Called on any /hvh command
+     */
+    private void hvhHandler(Player player, Command cmd, String[] args) {
+        if (hub == null) {
+            String cmd = args.length >= 0 ? args[0] : null; 
+            
+            // no hub exists, create one
+            if (cmd != null) {
+		        help("Unknown command \"' + cmd + '\"");
+		        help("Type \"/hvh create\" to start");
+            } else if (cmd.equals("create")) {
+                hub = new Hub(this, player);
+                help("Hub Created!");
+            } else if (cmd.equals("delete")) {
+                help("Hub deleted. :(");
+            } else {
+                // have the hub handle commands
+		        help("Type \"/hvh create\" to start");
+            }
+        
+        } else {
+            // let the hub deal with it
+            hub.parseCommand(player, new ArrayList(Arrays.asList(args)));
+        }
+    }
 
     @Override
     public boolean onCommand(CommandSender cs, Command cmd, String string, String[] args) {;
@@ -39,34 +64,13 @@ public class Main extends JavaPlugin {
         if (cs instanceof Player) {
             Player player = (Player) cs;
             
-            
-            // is command hvh && player has permissions
-            player.sendMessage("entered: " + string);
+            // command is hvh && player has permissions
             if (player.isOp() && string.equals("hvh")) {
-                if (args.length <= 0) {
-		    player.sendMessage("type '/hvh create' to start");
-		    return true;
-		}
-                
-                if (hub == null) {
-                    if (args[0].equals("create")) {
-                        hub = new Hub(this, player.getLocation());
-                        player.sendMessage("HvH Hub Created!");
-                    } else {
-                        player.sendMessage("No hub exists yet. Type '/hvh create' to start");
-                    }
-                    return true;
+                hvhHandler(player, command, args);
+                return true;
+            }
 		}
 		
-		if (args[0].equals("delete")) {
-                    player.sendMessage("Hub has been deleted");
-                    return true;
-                } else if (hub.parseCommand(player, new ArrayList(Arrays.asList(args)))) {
-                    return true;
-                }
-            }
-            
-        }
         return false;
     }
     
