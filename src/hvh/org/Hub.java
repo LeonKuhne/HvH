@@ -62,8 +62,8 @@ public class Hub {
                     setSpawn(admin);
                     return;
                 case "subscribe":
-                    if (!subscribers.contains(admin)) {
-                        subscribers.add(admin);
+                    if (!admins.contains(admin)) {
+                        admins.add(admin);
                         tell("spawn set");
                     }
                     return;
