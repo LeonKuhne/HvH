@@ -107,7 +107,10 @@ public class Hub {
 		help(player, "available commands: join, spawn, setspawn");
     }
     
-    public void setSpawn(HvHPlayer player) {
+    public void setSpawn(HvHPlayer hplayer) {
+        setSpawn(hplayer.player);
+    }
+    public void setSpawn(Player player) {
         spawn = player.getLocation();
     }
 }
