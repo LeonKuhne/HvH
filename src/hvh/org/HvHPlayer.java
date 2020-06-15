@@ -22,6 +22,10 @@ public class HvHPlayer {
         }
     }
 
+    public boolean inGame() {
+        return currGame == null;
+    }
+
     public void msg(String message) {
         player.sendMessage("[HvH] " + message);
     }
