@@ -56,7 +56,7 @@ class Game {
     }
     
     public boolean needsPlayer(Player player) {
-        player.tryJoin(game)
+        player.tryJoin(game);
     	switch(player.team) {
             case "hunter":
                 return needsHunter();
