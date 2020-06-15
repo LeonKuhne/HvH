@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
         Util.saveHub(hub);
     }
 
-    private void help(String message) {
+    private void help(Player player, String message) {
         player.sendMessage("[HvH] " + message);
     }
 
@@ -40,16 +40,16 @@ public class Main extends JavaPlugin {
             
             // no hub exists, create one
             if (cmd != null) {
-		        help("Unknown command \"' + cmd + '\"");
-		        help("Type \"/hvh create\" to start");
+		        help(player, "Unknown command \"' + cmd + '\"");
+		        help(player, "Type \"/hvh create\" to start");
             } else if (cmd.equals("create")) {
                 hub = new Hub(this, player);
-                help("Hub Created!");
+                help(player, "Hub Created!");
             } else if (cmd.equals("delete")) {
-                help("Hub deleted. :(");
+                help(player, "Hub deleted. :(");
             } else {
                 // have the hub handle commands
-		        help("Type \"/hvh create\" to start");
+		        help(player, "Type \"/hvh create\" to start");
             }
         
         } else {
