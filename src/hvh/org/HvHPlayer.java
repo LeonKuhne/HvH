@@ -3,7 +3,7 @@ package hvh.org;
 import java.util.List;
 import org.bukkit.entity.Player;
 
-public class HvHPlayer implements Player {
+public class HvHPlayer {
 
     private List<Game> games;
     protected Game currGame;
@@ -23,6 +23,10 @@ public class HvHPlayer implements Player {
 
     public void msg(String message) {
         player.sendMessage("[HvH] " + message);
+    }
+
+    public void teleport(Location loc) {
+        player.teleport(loc);
     }
 
     public void leaveGame() {
