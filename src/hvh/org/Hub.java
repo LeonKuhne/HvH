@@ -36,12 +36,15 @@ public class Hub {
     /**
      * Print a help message to a user
      */
+    private void help(HvHPlayer hplayer, String message) {
+        help(hplayer.player, message);
+    }
     private void help(Player player, String message) {
         player.sendMessage("$5[HvH Hub]$f " + message);
     }
 
     private void tell(String message) {
-        for (Player admin : admins) {
+        for (HvHPlayer admin : admins) {
             help(admin, message);
         }
     }
