@@ -27,7 +27,7 @@ public class HvHPlayer {
         return currGame == null;
     }
 
-    public void msg(String message) {
+    public void help(String message) {
         player.sendMessage("[HvH] " + message);
     }
 
