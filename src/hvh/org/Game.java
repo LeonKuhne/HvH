@@ -240,6 +240,7 @@ class Game {
     // respawn hunters
     public void respawn(HvHPlayer hplayer) {
         if (playing && hplayer.team.equals("hunter")) {
+            hplayer.help("respawning you for good")
             hplayer.teleport(gameSpawn);
         }
     }
@@ -267,6 +268,14 @@ class Game {
     // 
     
     public String toString() {
-        return "#" + id;
+        String str = "#" + id;
+        
+        if (playing) {
+            str += " playing"
+        } else if (inLobby) {
+            str += " lobby"
+        }
+
+        return str;
     }
 }

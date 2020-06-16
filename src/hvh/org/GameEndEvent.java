@@ -30,7 +30,6 @@ public class GameEndEvent implements Listener {
         Player player = event.getPlayer();
         HvHPlayer hplayer = new HvHPlayer(player, Main.hub);
         
-        // if player is hunter, say hi
         if (hplayer.isPlaying()) {
             if (hplayer.team.equals("hunter")) {
                 hplayer.help("It's not too late, keep chasing!");

@@ -50,6 +50,7 @@ public class HvHPlayer {
 
     public void respawn() {
         if (inGame()) {
+            help("respawning you...")
             currGame.respawn(this);
         }
     }
