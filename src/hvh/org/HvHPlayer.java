@@ -174,6 +174,6 @@ public class HvHPlayer {
     }
 
     public String toString() {
-        return "[" + hub + "] Game: " + currGame + ", Team: " + team;
+        return "[" + hub + "] Currently in game " + currGame + " as a " + team + ".";
     }
 }

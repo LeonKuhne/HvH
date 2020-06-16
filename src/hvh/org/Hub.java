@@ -127,7 +127,7 @@ public class Hub {
                     parseAdminCommand(player, args);
                     return;
                 case "info":
-                    help(player, "Your info: " + player);
+                    help(player, "Hub info: " + ChatColor.AQUA + player);
                     return;
                 case "help":
                     help(player, "Type a command to see its arguments");
@@ -156,6 +156,6 @@ public class Hub {
     }
 
     public String toString() {
-        return "Games: " + games.size();
+        return games.size() + " active games";
     }
 }
