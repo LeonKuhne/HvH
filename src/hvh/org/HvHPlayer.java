@@ -82,10 +82,21 @@ public class HvHPlayer {
         }
     }
 
+    public void startGame() {
+        if (inGame()) {
+            notify("forcing game to start");
+            currGame.start();
+        } else {
+            help("you aren't in a game yet");
+        }
+    }
+
     public void endGame() {
         if (inGame()) {
             notify("You lost the game");
             currGame.end();
+        } else {
+            help("cant end game, you're not in one (ERROR, tell a mod!)");
         }
     }
 

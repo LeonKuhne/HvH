@@ -77,7 +77,10 @@ public class Hub {
                     }
                     tell(admin.player.getDisplayName() + " subscribed!");
                     return;
-               default:
+                case "start":
+                    admin.startGame();
+                    return;
+                default:
                     help(admin, "Unknown command: " + ChatColor.RED + cmd);
             }
         }
