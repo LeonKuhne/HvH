@@ -60,7 +60,7 @@ public class HvHPlayer {
         switch (team) {
             case "hunter":
                 for (Game game : games) {
-                    if (game.needsHunter(this)) {
+                    if (game.needsHunter()) {
                         msg("found game " + game);
                         return game;
                     }
@@ -68,7 +68,7 @@ public class HvHPlayer {
                 break;
             case "hunted":
                 for (Game game : games) {
-                    if (game.needsHunted(this)) {
+                    if (game.needsHunted()) {
                         msg("found game " + game);
                         return game;
                     }
