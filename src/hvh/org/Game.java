@@ -75,23 +75,27 @@ class Game {
 
         return false;
     }
-
-    public String getTeam(Player player) {
+    
+    public HvHPlayer getHvHPlayer(Player player) {
         // check hunters
         for (HvHPlayer hunter : hunters) {
             if (player.equals(hunter.player)) {
-                return hunter.team;
+                return hunter;
             }
         }
         
         // check hunteds
         for (HvHPlayer hunted : hunteds) {
             if (player.equals(hunted.player)) {
-                return hunted.team;
+                return hunted;
             }
         }
 
         return null;
+    }
+
+    public String getTeam(Player player) {
+        return getHvHPlayer().team;
     }
 
     public void announce(String message) {
