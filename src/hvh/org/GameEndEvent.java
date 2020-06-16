@@ -15,7 +15,7 @@ public class GameEndEvent implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event) {
         System.out.println("player died");
         Player player = event.getEntity();
-        HvHPlayer hplayer = Main.hub.createGamer(player);
+        HvHPlayer hplayer = new HvHPlayer(player, Main.hub);
         
         // if player is hunter, end game, otherwise we don't care
         if (hplayer.isPlaying()) {

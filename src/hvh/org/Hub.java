@@ -89,7 +89,7 @@ public class Hub {
     }
     
     public void parseCommand(Player normie, List<String> args) {
-        HvHPlayer player = createGamer(normie);
+        HvHPlayer player = new HvHPlayer(player, this);
         
         if (args.size() >= 1) {
             String cmd = args.remove(0);
@@ -130,10 +130,6 @@ public class Hub {
         help(player, helpMsg);
     }
 
-    public HvHPlayer createGamer(Player player) {
-        return new HvHPlayer(player, this);
-    }
-    
     public void setSpawn(HvHPlayer hplayer) {
         setSpawn(hplayer.player);
     }
