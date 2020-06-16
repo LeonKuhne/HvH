@@ -17,10 +17,10 @@ public class HvHPlayer {
         this.hub = hub;
         this.team = "";
         currGame = findGame();
-        /*
+        
         if (!inGame()) {
-            this.team = currGame.getTeam(player);
-        }*/
+            //this.team = currGame.getTeam(player);
+        }
     }
 
     public boolean inGame() {
