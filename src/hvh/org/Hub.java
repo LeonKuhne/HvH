@@ -78,7 +78,7 @@ public class Hub {
     }
     
     public void parseCommand(Player normie, List<String> args) {
-        HvHPlayer player = new HvHPlayer(normie, games);
+        HvHPlayer player = createGamer(normie);
         
         if (args.size() >= 1) {
             String cmd = args.remove(0);
@@ -106,14 +106,18 @@ public class Hub {
                 default:
                     help(player, "Unknown command: \"" + ChatColor.RED + cmd + "\"");
             }
+        }
+
+        String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave"; 
+        if (normie.isOp()) {
+            helpMsg += ", admin";
+        }
+        help(player, helpMsg);
     }
-   
-    String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave"; 
-    if (normie.isOp()) {
-        helpMsg += ", admin";
+
+    public HvHPlayer createGamer(Player player) {
+        return new HvHPlayer(player, games);
     }
-    help(player, helpMsg);
-}
     
     public void setSpawn(HvHPlayer hplayer) {
         setSpawn(hplayer.player);

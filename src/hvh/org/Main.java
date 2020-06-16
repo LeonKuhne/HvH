@@ -14,12 +14,15 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class Main extends JavaPlugin {
 
-    Hub hub;
+    public static Hub hub;
     
     @Override
     public void onEnable() {
         getLogger().info("starting");
         hub = Util.loadHub();
+
+        // check for player respawns
+        getServer().getPluginManager().registerEvents(new PlayerRespawnEvent(), this);
     }
     
     @Override
@@ -50,7 +53,7 @@ public class Main extends JavaPlugin {
                     help(player, ChatColor.GREEN + "Hub deleted. :(");
                     break;
                 default:
-		            help(player, "Unknown command \"" + cmd + "\"");
+		            help(player, "Unknown command " + ChatColor.GREEN + cmd);
                 case "":
 		            help(player, "Type " + ChatColor.GREEN + "/hvh create" + ChatColor.RESET + " to start");
                     break;

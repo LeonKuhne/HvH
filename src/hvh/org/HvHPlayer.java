@@ -89,7 +89,7 @@ public class HvHPlayer {
         }
    
 	    // create
-	    game = new Game();
+	    game = new Game(player.getWorld());
 	    games.add(game);
         help("Created new game " + ChatColor.GREEN + game);
         return game;
