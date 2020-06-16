@@ -23,7 +23,7 @@ public class GameEndEvent implements Listener {
     }
 
     @EventHandler
-    public void onPlayerRespawn(PlayerRespawnEvent event) {
+    public void onRespawn(PlayerRespawnEvent event) {
         Player player = event.getPlayer();
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
