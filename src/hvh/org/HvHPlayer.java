@@ -174,6 +174,16 @@ public class HvHPlayer {
     }
 
     public String toString() {
-        return "[" + hub + "] Currently in game " + currGame + " as a " + team + ".";
+        String str = "[" + hub + "]";
+
+        // add game if exists
+        if (currGame != null) {
+            str += " Currently in game " + currGame;
+        }
+    
+        // add team if exists
+        if (!team.equals("")) {
+            str += " as a " + team + ".";
+        }
     }
 }
