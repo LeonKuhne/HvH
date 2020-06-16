@@ -84,8 +84,8 @@ class Game {
 
         // announce the winner
         announce("The Hunters have won the game!");
-        tellGroup(hunters, ChatColor.GREEN + "You won!");
-        tellGroup(hunteds, ChatColor.RED + "You lost!");
+        tellGroup(hunters, ChatColor.GREEN + "You're the WINNERS!");
+        tellGroup(hunteds, ChatColor.RED + "You're the LOSERS!");
         
         // tp players to hub
         tpGroup(hunters, hubSpawn);
@@ -176,8 +176,6 @@ class Game {
                     return hunteds.remove(hplayer);
             }
         }
-
-        System.out.println("You're not in this game");
 
         return false;
     }

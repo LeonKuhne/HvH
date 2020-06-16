@@ -31,10 +31,24 @@ public class HvHPlayer {
         return inGame() && currGame.playing;
     }
 
-    public void help(String message) {
+
+    // Message Player
+    //
+    
+    public void help(String message, ChatColor color) {
         String prompt = team != null ? "[HvH " + team + "] " : "[HvH -----] ";
-        player.sendMessage(ChatColor.GOLD + prompt + ChatColor.AQUA + message);
+        player.sendMessage(ChatColor.GOLD + prompt + color + message);
     }
+    
+    public void help(String message) {
+        help(message, ChatColor.AQUA);
+    }
+    
+    public void notify(String message) {
+        help(message, ChatColor.GREEN);
+    }
+
+    // SETUP/HELPER ACTIONS
 
     public void teleport(Location loc) {
         player.teleport(loc);
@@ -46,13 +60,13 @@ public class HvHPlayer {
     }
 
 
-    // GAME
+    // GAME ACTIONS
     // 
     
     public void leaveGame() {
     	for (Game game : hub.games) {
 	        if (game.remove(player)) {
-                help("You left the game");
+                notify("You left the game");
                 return;
 	        }
 	    }
@@ -63,11 +77,12 @@ public class HvHPlayer {
         Game game = findOrCreateGame();
         game.addPlayer(this);
         currGame = game;
-        help("You joined the game");
+        notify("You joined a game");
     }
 
     public void endGame() {
         if (inGame()) {
+            notify("You lost the game")
             currGame.end();
         }
     }
