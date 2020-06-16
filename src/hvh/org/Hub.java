@@ -39,6 +39,9 @@ public class Hub {
      * Print a help message to a user
      */
     private void failed(HvHPlayer hplayer, String message) {
+        failed(hplayer.player, message);
+    }
+    private void failed(Player player, String message) {
         message += ChatColor.RED + "Failed: " + message;
         help(player, message);
     }
