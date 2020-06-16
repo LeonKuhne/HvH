@@ -13,11 +13,11 @@ public class HvHPlayer {
 
     public HvHPlayer(Player player, List<Game> games) {
         this.games = games;
+        this.team = "";
 
         currGame = findGame();
         if (currGame == null) {
             this.player = player;
-            this.team = "";
         } else {
             this.team = currGame.getTeam(player);
         }
@@ -58,9 +58,7 @@ public class HvHPlayer {
     }
     
     private Game findGame() {
-        System.out.println(this.team);
-
-        switch (this.team) {
+        switch (team) {
             case "hunter":
                 for (Game game : games) {
                     if (game.needsHunter()) {
