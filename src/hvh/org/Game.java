@@ -168,12 +168,17 @@ class Game {
 
     public boolean remove(Player player) {
         HvHPlayer hplayer = getHvHPlayer(player);
-        switch(hplayer.team) {
-            case "hunter":
-                return hunters.remove(hplayer);
-            case "hunted":
-                return hunteds.remove(hplayer);
+        if (hplayer != null) {
+            switch(hplayer.team) {
+                case "hunter":
+                    return hunters.remove(hplayer);
+                case "hunted":
+                    return hunteds.remove(hplayer);
+            }
         }
+
+        help(player, "You're not in this game");
+
         return false;
     }
 
