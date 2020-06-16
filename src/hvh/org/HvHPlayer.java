@@ -76,7 +76,7 @@ public class HvHPlayer {
                 }
                 break;
             default:
-                help("you need to choose a team first");
+                help("you are not on a team yet");
                 break;
         }
 
