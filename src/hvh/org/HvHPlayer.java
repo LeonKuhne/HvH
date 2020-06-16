@@ -8,9 +8,9 @@ import org.bukkit.ChatColor;
 public class HvHPlayer {
 
     protected Game currGame;
+    protected Hub hub;
     public Player player;
     public String team;
-    protected Hub hub;
 
     public HvHPlayer(Player player, Hub hub) {
         this.hub = hub;
@@ -25,6 +25,10 @@ public class HvHPlayer {
 
     public boolean inGame() {
         return currGame != null;
+    }
+
+    public boolean isPlaying() {
+        return inGame() && currGame.playing;
     }
 
     public void help(String message) {
