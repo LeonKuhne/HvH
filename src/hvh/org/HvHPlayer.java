@@ -10,7 +10,7 @@ public class HvHPlayer {
     protected Game currGame;
     public Player player;
     public String team;
-    private Hub hub;
+    protected Hub hub;
 
     public HvHPlayer(Player player, Hub hub) {
         this.hub = hub;
