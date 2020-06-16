@@ -18,8 +18,8 @@ public class GameEndEvent implements Listener {
         
         // if player is hunter, end game, otherwise we don't care
         if (hplayer.isPlaying()) {
-            if (hplayer.team == "hunted") {
-                player.spigot().respawn();
+            if (hplayer.team.equals("hunted")) {
+                //player.spigot().respawn();
                 hplayer.endGame();
             }
         }
@@ -32,7 +32,7 @@ public class GameEndEvent implements Listener {
         
         // if player is hunter, say hi
         if (hplayer.isPlaying()) {
-            if (hplayer.team == "hunter") {
+            if (hplayer.team.equals("hunter")) {
                 hplayer.help("It's not too late, keep chasing!");
             }
         }   
