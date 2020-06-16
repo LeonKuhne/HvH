@@ -16,11 +16,8 @@ public class HvHPlayer {
         this.player = player;
         this.hub = hub;
         this.team = "";
-        currGame = findGame();
         
-        if (inGame()) {
-            this.team = currGame.getTeam(player);
-        }
+        loadFromGame();
     }
 
     public boolean inGame() {
@@ -95,6 +92,16 @@ public class HvHPlayer {
 
     // UTIL
     //
+
+    private boolean loadFromGame() {
+        for (Game game : hub.games) {
+            HvHPlayer hplayer = game.getHvHPlayer(player);
+            if (hplayer != null) { 
+                this.team = hplayer.team;
+                this.currGame = game;
+            }
+        }
+    }
 
     private Game findGame() {
         switch (team) {
