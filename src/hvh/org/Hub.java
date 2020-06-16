@@ -117,7 +117,8 @@ public class Hub {
     }
 
     public HvHPlayer createGamer(Player player) {
-        Hub hub = self;
+        Hub hub = this;
+        System.out.println("hub: " + hub);
         HvHPlayer hplayer = new HvHPlayer(player, hub);
         return hplayer;
     }
