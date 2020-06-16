@@ -70,11 +70,11 @@ public class Hub {
                     }
                     return;
                default:
-                    help(admin, "Unknown command: \"" + ChatColor.RED + cmd + "\"");
+                    help(admin, "Unknown command: " + ChatColor.RED + cmd);
             }
         }
 
-        help(admin, "admin commands: tp, setspawn, subscribe");
+        help(admin, "admin commands: " + ChatColor.GREEN + "tp, setspawn, subscribe");
     }
     
     public void parseCommand(Player normie, List<String> args) {
@@ -104,7 +104,7 @@ public class Hub {
                     parseAdminCommand(player, args);
                     return;
                 default:
-                    help(player, "Unknown command: \"" + ChatColor.RED + cmd + "\"");
+                    help(player, "Unknown command: " + ChatColor.RED + cmd);
             }
         }
 

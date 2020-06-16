@@ -53,7 +53,7 @@ public class Main extends JavaPlugin {
                     help(player, ChatColor.GREEN + "Hub deleted. :(");
                     break;
                 default:
-		            help(player, "Unknown command " + ChatColor.GREEN + cmd);
+		            help(player, "Unknown command " + ChatColor.RED + cmd);
                 case "":
 		            help(player, "Type " + ChatColor.GREEN + "/hvh create" + ChatColor.RESET + " to start");
                     break;
