@@ -39,6 +39,7 @@ public class Hub {
             else if (game.waitingToStart) {
 	        	game.start();
             }
+        }
     }
 
     /**
