@@ -13,10 +13,10 @@ public class HvHPlayer {
     public String team;
 
     public HvHPlayer(Player player, Hub hub) {
-        /*
         this.player = player;
         this.hub = hub;
         this.team = "";
+        /*
         currGame = findGame();
         if (!inGame()) {
             this.team = currGame.getTeam(player);
