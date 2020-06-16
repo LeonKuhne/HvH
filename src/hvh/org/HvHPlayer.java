@@ -91,10 +91,10 @@ public class HvHPlayer {
 
     public void switchTo(String team) {
         if (this.team == team) {
-            help("You're already on that team")
+            help("You're already on that team");
         } else {
             if (inGame() && currGame.swapTeams(this)) {
-                notify("You swapped teams")
+                notify("You swapped teams");
             } else {
                 help("The other team is full");
             }
