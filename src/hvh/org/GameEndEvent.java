@@ -12,7 +12,7 @@ public class GameEndEvent implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
         // if player is hunter, end game, otherwise we don't care
