@@ -210,14 +210,14 @@ class Game {
             case "hunter":
                 if (needsHunted() && remove(hplayer)) {
                     hplayer.joinTeam("hunted");
-                    hunteds.addPlayer(hplayer);
+                    hunteds.add(hplayer);
                     return true;
                 }
                 break;
             case "hunted":
                 if (needsHunter() && remove(hplayer)) {
                     hplayer.joinTeam("hunter");
-                    hunters.addPlayer(hplayer);
+                    hunters.add(hplayer);
                     return true;
                 }
                 break; 
