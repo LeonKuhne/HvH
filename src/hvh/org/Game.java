@@ -237,11 +237,9 @@ class Game {
         return false;
     }
 
-    // respawn hunters
-    public void respawn(HvHPlayer hplayer) {
-        if (playing && hplayer.team.equals("hunter")) {
-            hplayer.help("respawning you for good");
-            hplayer.teleport(gameSpawn);
+    public Location getSpawn() {
+        if (playing) {
+            return gameSpawn;
         }
     }
 

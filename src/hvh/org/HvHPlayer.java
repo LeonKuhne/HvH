@@ -48,15 +48,8 @@ public class HvHPlayer {
     // SETUP/HELPER ACTIONS
     //
 
-    public void respawn() {
-        if (inGame()) {
-            help("respawning you...");
-            currGame.respawn(this);
-        }
-    }
-
     public void teleport(Location loc) {
-        player.teleport(loc);
+~        player.teleport(loc);
     }
 
     public boolean joinTeam(String team) {
@@ -126,6 +119,12 @@ public class HvHPlayer {
 
     // UTIL
     //
+
+    public void getGame() {
+        if (inGame()) {
+            return currGame;
+        }
+    }
 
     private void loadFromGame() {
         for (Game game : hub.games) {

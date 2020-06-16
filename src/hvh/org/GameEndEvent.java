@@ -33,7 +33,12 @@ public class GameEndEvent implements Listener {
         if (hplayer.isPlaying()) {
             if (hplayer.team.equals("hunter")) {
                 hplayer.help("It's not too late, keep chasing!");
-                hplayer.respawn();
+                Location loc = hplayer.getGame().getSpawn();
+                if (loc != null) {
+                    event.setRespawnLocation(loc);
+                } else {
+                    hplayer.help("Game not active, can't respawn you");
+                }
             }
         }   
     }
