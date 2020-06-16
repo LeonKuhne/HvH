@@ -8,7 +8,7 @@ import org.bukkit.ChatColor;
 public class HvHPlayer {
 
     protected Game currGame;
-    protected Hub hub;
+    private Hub hub;
     public Player player;
     public String team;
 

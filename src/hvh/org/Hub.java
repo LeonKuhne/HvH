@@ -13,7 +13,7 @@ import org.bukkit.ChatColor;
  */
 public class Hub {
     
-    private List<Game> games;
+    public List<Game> games;
     private List<Player> admins;
     private Location spawn;
     
