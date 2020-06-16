@@ -107,7 +107,7 @@ public class Hub {
     }
    
     String helpMsg = "user commands: join, leave"; 
-    if (player.isOp) {
+    if (player.isOp()) {
         helpMsg += ", admin";
     }
     help(player, helpMsg);
