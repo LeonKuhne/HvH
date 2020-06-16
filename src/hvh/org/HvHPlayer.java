@@ -98,6 +98,15 @@ public class HvHPlayer {
         }
     }
 
+    public void stopGame() {
+        if (inGame() && currGame.playing) {
+            notify("forcing game to stop");
+            currGame.end();
+        } else {
+            help("game not started");
+        }
+    }
+
     public void endGame() {
         if (inGame()) {
             currGame.end();

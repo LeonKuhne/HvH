@@ -87,6 +87,9 @@ public class Hub {
                 case "start":
                     admin.startGame();
                     return;
+                case "stop":
+                    admin.stopGame();
+                    return;
                 default:
                     help(admin, "Unknown command: " + ChatColor.RED + cmd);
             }
