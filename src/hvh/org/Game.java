@@ -17,16 +17,19 @@ class Game {
     
     public final static int NUM_HUNTED = 1;
     public final static int NUM_HUNTER = 1;
-    
+    public static int COUNT = 0;
+
     public boolean inLobby;
     public boolean waitingToStart;
     
+    private int id;
     private List<HvHPlayer> hunters;
     private List<HvHPlayer> hunteds;
     
     public Game() {
         inLobby = true;
         waitingToStart = false;
+        id = COUNT++;
         
         hunters = new ArrayList();
         hunteds = new ArrayList();
@@ -120,5 +123,12 @@ class Game {
 	        hplayer.player.sendMessage(ChatColor.GOLD + "[HvH Game] " + ChatColor.RESET + message);
 	    }
     }
+
     
+    // HELPRS
+    // 
+    
+    public String toString() {
+        return "#" + id;
+    }
 }

@@ -75,9 +75,6 @@ public class HvHPlayer {
                     }
                 }
                 break;
-            default:
-                help("you are not on a team yet");
-                break;
         }
 
         return null;
