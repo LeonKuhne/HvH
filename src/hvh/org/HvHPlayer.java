@@ -17,6 +17,7 @@ public class HvHPlayer {
         currGame = findGame();
         if (currGame == null) {
             this.player = player;
+            this.team = "";
         } else {
             this.team = currGame.getTeam(player);
         }
@@ -73,6 +74,9 @@ public class HvHPlayer {
                         return game;
                     }
                 }
+                break;
+            default:
+                msg("you need to choose a team first");
                 break;
         }
 
