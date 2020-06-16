@@ -38,6 +38,10 @@ public class Hub {
     /**
      * Print a help message to a user
      */
+    private void failed(HvHPlayer hplayer, String message) {
+        message += ChatColor.RED + "Failed: " + message;
+        help(player, message);
+    }
     private void help(HvHPlayer hplayer, String message) {
         help(hplayer.player, message);
     }
@@ -88,7 +92,7 @@ public class Hub {
                 case "join":
                     // check if player already in game
                     if (player.inGame()) {
-                        help(player, "sir. you are already in a game");
+                        help(player, "you are already in a game");
                     } else if (args.size() > 0) {
                         // add player to a game
                         String team = args.get(0);                              // team the player wants to be on
