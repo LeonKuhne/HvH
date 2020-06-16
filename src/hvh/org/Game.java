@@ -200,7 +200,7 @@ class Game {
     }
 
     public void announce(String message) {
-        message = ChatColor.BOLD + ChatColor.UNDERLINE + message;
+        message = "" + ChatColor.BOLD + ChatColor.UNDERLINE + message;
 	    tellGroup(hunters, message);
 	    tellGroup(hunteds, message);
     }
