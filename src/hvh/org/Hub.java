@@ -94,7 +94,7 @@ public class Hub {
                         player.joinTeam(team);                                  // set the players team
                         player.joinGame();                                      // add player to game lobby
 		            } else {
-                        help(player, "you must specify a team: /hvh join [hunter/hunted]");
+                        help(player, "you must specify a team: " + ChatColor.GREEN + "/hvh join [hunter/hunted]");
 	    	        }
 		            return;
 	            case "leave":
@@ -108,7 +108,7 @@ public class Hub {
             }
     }
    
-    String helpMsg = "User commands: " + ChatColor.GREEN +  " join, leave"; 
+    String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave"; 
     if (normie.isOp()) {
         helpMsg += ", admin";
     }
