@@ -8,6 +8,7 @@ package hvh.org;
 import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 
 /**
  * @author Leee Leee
@@ -116,7 +117,7 @@ class Game {
 
     public void tellGroup(List<HvHPlayer> group, String message) {
     	for (HvHPlayer hplayer : group) {
-	        hplayer.player.sendMessage("[HvH Game] " + message);
+	        hplayer.player.sendMessage(ChatColor.ORANGE + "[HvH Game] " + ChatColor.RESET + message);
 	    }
     }
     

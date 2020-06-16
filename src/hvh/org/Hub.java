@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-
+import org.bukkit.ChatColor;
 
 /**
  * @author Leee Leee
@@ -40,7 +40,7 @@ public class Hub {
         help(hplayer.player, message);
     }
     private void help(Player player, String message) {
-        player.sendMessage("$5[HvH Hub]$f " + message);
+        player.sendMessage(ChatColor.ORANGE + "[HvH Hub] " + ChatColor.RESET + message);
     }
 
     private void tell(String message) {
@@ -88,9 +88,9 @@ public class Hub {
                         help(player, "sir. you are already in a game");
                     } else if (args.size() > 0) {
                         // add player to a game
-                        String team = args.get(0);                                      // team the player wants to be on
-                        player.joinTeam(team);                                      // set the players team
-                        player.joinGame();                                         // add player to game lobby
+                        String team = args.get(0);                              // team the player wants to be on
+                        player.joinTeam(team);                                  // set the players team
+                        player.joinGame();                                      // add player to game lobby
 		            } else {
                         help(player, "you must specify a team: /hvh join [hunter/hunted]");
 	    	        }

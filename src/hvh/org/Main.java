@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -28,7 +29,7 @@ public class Main extends JavaPlugin {
     }
 
     private void help(Player player, String message) {
-        player.sendMessage("[HvH] " + message);
+        player.sendMessage(ChatColor.ORANGE + "[HvH] " + ChatColor.RESET + message);
     }
 
     /**
