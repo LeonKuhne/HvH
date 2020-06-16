@@ -28,6 +28,7 @@ class Game {
     public boolean inLobby;
     public boolean waitingToStart;
     public boolean playing;
+    public boolean done;
     
     private int id;
     private World world;
