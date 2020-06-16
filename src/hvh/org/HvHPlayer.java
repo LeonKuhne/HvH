@@ -54,6 +54,9 @@ public class HvHPlayer {
     public boolean joinTeam(String team) {
         switch(team) {
             case "hunter":
+                help("Joined team: " + ChatColor.GREEN + team);
+                this.team = team;
+                return true;
             case "hunted":
                 help("Joined team: " + ChatColor.GREEN + team);
                 this.team = team;
