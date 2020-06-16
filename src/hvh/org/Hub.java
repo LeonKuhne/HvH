@@ -108,7 +108,7 @@ public class Hub {
             }
     }
    
-    String helpMsg = "user commands: join, leave"; 
+    String helpMsg = "User commands: " + ChatColor.GREEN +  " join, leave"; 
     if (normie.isOp()) {
         helpMsg += ", admin";
     }
