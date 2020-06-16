@@ -210,7 +210,7 @@ class Game {
 	    }
     }
 
-    public void tpGroup(List<HvHPlayers> group, Location loc) {
+    public void tpGroup(List<HvHPlayer> group, Location loc) {
         for (HvHPlayer hplayer : group) {
             hplayer.player.teleport(loc);
         }
