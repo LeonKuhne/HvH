@@ -118,7 +118,7 @@ public class Hub {
 
     public HvHPlayer createGamer(Player player) {
         Hub hub = self;
-        HvHPlayer hplayer = new HvHPlayer(player, hub)
+        HvHPlayer hplayer = new HvHPlayer(player, hub);
         return hplayer;
     }
     
