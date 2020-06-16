@@ -112,8 +112,9 @@ public class Hub {
 
                         } else {
                             // add player to a game
-                            player.joinTeam(team);
-                            player.joinGame();
+                            if (player.joinTeam(team)) {
+                                player.joinGame();
+                            }
                         }
 		            } else {
                         help(player, "You must specify a team: " + ChatColor.GREEN + "/hvh join [hunter/hunted]");

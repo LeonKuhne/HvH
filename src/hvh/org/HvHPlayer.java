@@ -51,9 +51,19 @@ public class HvHPlayer {
         player.teleport(loc);
     }
 
-    public void joinTeam(String team) {
-        this.team = team;
-        help("On team: " + ChatColor.GREEN + team);
+    public boolean joinTeam(String team) {
+        switch(team) {
+            case "hunter":
+            case "hunted":
+                help("Joined team: " + ChatColor.GREEN + team);
+                this.team = team;
+                return true;
+            defaut:
+                help("Team must be either hunter or hunted");
+                break;
+        }
+
+        return false;
     }
 
 
