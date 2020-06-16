@@ -16,7 +16,7 @@ import org.bukkit.ChatColor;
 class Game {
     
     public final static int NUM_HUNTED = 1;
-    public final static int NUM_HUNTER = 1;
+    public final static int NUM_HUNTER = 0;
     public static int COUNT = 0;
 
     public boolean inLobby;

@@ -28,7 +28,7 @@ public class HvHPlayer {
     }
 
     public void help(String message) {
-        String prompt = team != null ? "[HvH " + team + "]" : "[HvH -----]";
+        String prompt = team != null ? "[HvH " + team + "] " : "[HvH -----] ";
         player.sendMessage(ChatColor.GOLD + prompt + ChatColor.AQUA + message);
     }
 
