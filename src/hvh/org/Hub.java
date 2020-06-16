@@ -85,7 +85,7 @@ public class Hub {
             }
         }
 
-        help(admin, "admin commands: " + ChatColor.GREEN + "tp, setspawn, subscribe");
+        help(admin, "admin commands: " + ChatColor.GREEN + "tp, setspawn, subscribe, start");
     }
     
     public void parseCommand(Player normie, List<String> args) {
