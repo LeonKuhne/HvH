@@ -7,7 +7,7 @@ package hvh.org;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadlocalRandom;
+import java.util.concurrent.ThreadLocalRandom;
 import org.bukkit.entity.Player;
 import org.bukkit.World;
 import org.bukkit.ChatColor;
