@@ -177,7 +177,7 @@ class Game {
             }
         }
 
-        help(player, "You're not in this game");
+        System.out.println("You're not in this game");
 
         return false;
     }
