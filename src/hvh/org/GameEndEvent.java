@@ -12,7 +12,7 @@ public class GameEndEvent extends Listener {
         // if player is hunter, end game, otherwise we don't care
         if (hplayer.playing) {
             if (hplayer.team == "hunted") {
-                player.spigot().respawn()
+                player.spigot().respawn();
                 hplayer.endGame();
             }
         }
@@ -26,7 +26,7 @@ public class GameEndEvent extends Listener {
         // if player is hunter, say hi
         if (hplayer.playing) {
             if (hplayer.team == "hunter") {
-                player.help("It's not too late, keep chasing!")
+                player.help("It's not too late, keep chasing!");
             }
         }   
     }
