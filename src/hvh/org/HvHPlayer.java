@@ -124,6 +124,7 @@ public class HvHPlayer {
         if (inGame()) {
             return currGame;
         }
+        return null;
     }
 
     private void loadFromGame() {
