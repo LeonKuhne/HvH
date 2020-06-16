@@ -79,7 +79,6 @@ public class Hub {
     }
     
     public void parseCommand(Player normie, List<String> args) {
-        System.out.println(normie);
         HvHPlayer player = createGamer(normie);
         
         if (args.size() >= 1) {

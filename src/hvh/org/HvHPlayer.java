@@ -13,9 +13,9 @@ public class HvHPlayer {
     public String team;
 
     public HvHPlayer(Player player, Hub hub) {
+        this.player = player;
         this.hub = hub;
         this.team = "";
-        this.player = player;
 
         currGame = findGame();
         if (!inGame()) {
