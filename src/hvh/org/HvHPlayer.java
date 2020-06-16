@@ -93,7 +93,7 @@ public class HvHPlayer {
     // UTIL
     //
 
-    private boolean loadFromGame() {
+    private void loadFromGame() {
         for (Game game : hub.games) {
             HvHPlayer hplayer = game.getHvHPlayer(player);
             if (hplayer != null) { 
