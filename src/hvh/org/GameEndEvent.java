@@ -32,7 +32,7 @@ public class GameEndEvent implements Listener {
         // if player is hunter, say hi
         if (hplayer.isPlaying()) {
             if (hplayer.team == "hunter") {
-                player.help("It's not too late, keep chasing!");
+                hplayer.help("It's not too late, keep chasing!");
             }
         }   
     }
