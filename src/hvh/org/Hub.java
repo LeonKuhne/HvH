@@ -126,7 +126,7 @@ public class Hub {
         spawn = player.getLocation();
     }
 
-    public void getSpawn() {
+    public Location getSpawn() {
         return spawn.clone();
     }
 }
