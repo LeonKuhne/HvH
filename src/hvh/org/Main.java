@@ -22,7 +22,7 @@ public class Main extends JavaPlugin {
         hub = Util.loadHub();
 
         // check for player respawns
-        getServer().getPluginManager().registerEvents(new PlayerRespawnEvent(), this);
+        getServer().getPluginManager().registerEvents(new GameEndEvent(), this);
     }
     
     @Override
