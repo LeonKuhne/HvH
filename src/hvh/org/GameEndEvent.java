@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 public class GameEndEvent implements Listener {
 
     @EventHandler
-    public void onDeath(PlayerDeathEvent event) {
+    public void onPlayerDeath(PlayerDeathEvent event) {
         Player player = event.getPlayer();
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
@@ -25,7 +25,7 @@ public class GameEndEvent implements Listener {
     }
 
     @EventHandler
-    public void onRespawn(PlayerRespawnEvent event) {
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
         Player player = event.getPlayer();
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
