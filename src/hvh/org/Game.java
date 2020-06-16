@@ -241,6 +241,7 @@ class Game {
         if (playing) {
             return gameSpawn;
         }
+        return null;
     }
 
     public void announce(String message) {
