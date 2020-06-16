@@ -3,10 +3,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
+/**
+ * @author Leee Leee
+ */
 public class GameEndEvent implements Listener {
 
     @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent event) {
+    public void onDeath(PlayerDeathEvent event) {
         Player player = event.getPlayer();
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
