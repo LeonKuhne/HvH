@@ -7,13 +7,12 @@ import org.bukkit.ChatColor;
 
 public class HvHPlayer {
 
-    private List<Game> games;
     protected Game currGame;
     public Player player;
     public String team;
 
-    public HvHPlayer(Player player, List<Game> games) {
-        this.games = games;
+    public HvHPlayer(Player player, Hub hub) {
+        this.hub = hub;
         this.team = "";
         this.player = player;
 
@@ -37,7 +36,7 @@ public class HvHPlayer {
     }
 
     public void leaveGame() {
-    	for (Game game : games) {
+    	for (Game game : hub.games) {
 	        if (game.remove(player)) {
                 help("You left the game");
                 return;
@@ -61,7 +60,7 @@ public class HvHPlayer {
     private Game findGame() {
         switch (team) {
             case "hunter":
-                for (Game game : games) {
+                for (Game game : hub.games) {
                     if (game.needsHunter()) {
                         help("found game " + game);
                         return game;
@@ -69,7 +68,7 @@ public class HvHPlayer {
                 }
                 break;
             case "hunted":
-                for (Game game : games) {
+                for (Game game : hub.games) {
                     if (game.needsHunted()) {
                         help("found game " + game);
                         return game;
@@ -89,8 +88,8 @@ public class HvHPlayer {
         }
    
 	    // create
-	    game = new Game(player.getWorld());
-	    games.add(game);
+	    game = new Game(player.getWorld(), hub.getSpawn());
+	    hub.games.add(game);
         help("Created new game " + ChatColor.GREEN + game);
         return game;
     }

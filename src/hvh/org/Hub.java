@@ -13,9 +13,9 @@ import org.bukkit.ChatColor;
  */
 public class Hub {
     
-    List<Game> games;
-    List<Player> admins;
-    Location spawn;
+    private List<Game> games;
+    private List<Player> admins;
+    private Location spawn;
     
     public Hub(Plugin plugin, Player player) {
 	    games = new ArrayList();
@@ -116,7 +116,7 @@ public class Hub {
     }
 
     public HvHPlayer createGamer(Player player) {
-        return new HvHPlayer(player, games);
+        return new HvHPlayer(player, this);
     }
     
     public void setSpawn(HvHPlayer hplayer) {
@@ -124,5 +124,9 @@ public class Hub {
     }
     public void setSpawn(Player player) {
         spawn = player.getLocation();
+    }
+
+    public void getSpawn() {
+        return spawn.clone();
     }
 }
