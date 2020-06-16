@@ -62,12 +62,13 @@ public class Hub {
                     return;
                 case "setspawn":
                     setSpawn(admin);
+                    tell("spawn set");
                     return;
                 case "subscribe":
                     if (!admins.contains(admin.player)) {
                         admins.add(admin.player);
-                        tell("spawn set");
                     }
+                    tell(admin.player.getDisplayName() + " subscribed!");
                     return;
                default:
                     help(admin, "Unknown command: " + ChatColor.RED + cmd);
