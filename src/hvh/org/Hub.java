@@ -24,15 +24,21 @@ public class Hub {
         admins.add(player);
         setSpawn(player);
         
-        plugin.getServer().getScheduler().runTaskTimer(plugin, () -> tryStartGames(), 50l, 100l);
+        plugin.getServer().getScheduler().runTaskTimer(plugin, () -> tryUpdateGames(), 50l, 100l);
     }
 
-    private void tryStartGames() {
+    private void tryUpdateGames() {
     	for (Game game : games) {
-	        if (game.waitingToStart) {
+            // end done games
+            if (game.done) {
+                game.close();
+                games.remove(game);
+            }
+
+            // start ready games
+            else if (game.waitingToStart) {
 	        	game.start();
-	        }
-    	}
+            }
     }
 
     /**

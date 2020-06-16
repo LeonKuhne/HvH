@@ -13,7 +13,6 @@ public class GameEndEvent implements Listener {
     
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        System.out.println("player died");
         Player player = event.getEntity();
         HvHPlayer hplayer = new HvHPlayer(player, Main.hub);
         
@@ -28,7 +27,6 @@ public class GameEndEvent implements Listener {
 
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
-        System.out.println("player respawned");
         Player player = event.getPlayer();
         HvHPlayer hplayer = new HvHPlayer(player, Main.hub);
         

@@ -93,10 +93,7 @@ public class HvHPlayer {
 
     public void endGame() {
         if (inGame()) {
-            notify("You lost the game");
             currGame.end();
-        } else {
-            help("cant end game, you're not in one (ERROR, tell a mod!)");
         }
     }
 

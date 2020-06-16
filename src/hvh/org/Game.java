@@ -83,13 +83,17 @@ class Game {
         done = true;
 
         // announce the winner
-        announce("The Hunters have won the game!");
-        tellGroup(hunters, ChatColor.GREEN + "You're the WINNERS!");
-        tellGroup(hunteds, ChatColor.RED + "You're the LOSERS!");
+        announce("The Hunters Won!");
+        tellGroup(hunters, ChatColor.GREEN + "You won!");
+        tellGroup(hunteds, ChatColor.RED + "You lost!");
         
         // tp players to hub
         tpGroup(hunters, hubSpawn);
         tpGroup(hunteds, hubSpawn);
+    }
+
+    public void close() {
+        announce(ChatColor.Red + "Game lobby closed " + ChatColor.GREEN + game);
     }
 
     /**
@@ -126,7 +130,7 @@ class Game {
     private Location randomStart() {
         int x = ThreadLocalRandom.current().nextInt(-SPAWN_RADIUS, SPAWN_RADIUS+1);
         int z = ThreadLocalRandom.current().nextInt(-SPAWN_RADIUS, SPAWN_RADIUS+1);
-        int y = world.getHighestBlockYAt(x, z);
+        int y = world.getHighestBlockYAt(x, z) + 2;
 
         return new Location(world, x, y, z);
     }
@@ -137,6 +141,10 @@ class Game {
 	    }
     }
     
+
+    // INFO
+    // 
+
     public boolean needsHunted() {
         return hunteds.size() < NUM_HUNTED;
     }
@@ -144,6 +152,8 @@ class Game {
     public boolean needsHunter() {
         return hunters.size() < NUM_HUNTER;
     }
+
+    // PLAYER ACTIONS
     
     public boolean addPlayer(HvHPlayer player) {
         switch(player.team) {
