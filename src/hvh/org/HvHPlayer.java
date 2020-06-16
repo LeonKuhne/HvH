@@ -58,7 +58,7 @@ public class HvHPlayer {
     }
     
     private Game findGame() {
-        switch (team) {
+        switch (this.team) {
             case "hunter":
                 for (Game game : games) {
                     if (game.needsHunter()) {
