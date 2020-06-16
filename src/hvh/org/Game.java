@@ -84,7 +84,7 @@ class Game {
 
     public void tellGroup(List<HvHPlayer> group, String message) {
     	for (HvHPlayer player : group) {
-	        player.sendMessage("HvH: " + message);
+            help(player, message);
 	    }
     }
     
