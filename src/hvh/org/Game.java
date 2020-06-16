@@ -81,11 +81,10 @@ class Game {
         switch(hplayer.team) {
             case "hunter":
                 return hunters.remove(hplayer);
-                break;
             case "hunted":
                 return hunteds.remove(hplayer);
-                break;
         }
+        return false;
     }
 
     public HvHPlayer getHvHPlayer(Player player) {
