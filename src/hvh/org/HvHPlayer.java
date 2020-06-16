@@ -55,15 +55,23 @@ public class HvHPlayer {
        msg("you joined the game as a " + team);
     }
     
-    private Game findOrCreateGame() {
-        // find
+    private Game findGame() {
         for (Game game : games) {
             if (game.needsPlayer(this)) {
                 msg("found game " + game);
                 return game;
             }
         }
-    
+        return null;
+    }
+
+    private Game findOrCreateGame() {
+        // find
+        Game game = findGame();
+        if (game != null) {
+            return game;
+        }
+   
 	    // create
 	    game = new Game();
 	    games.add(game);
