@@ -14,12 +14,14 @@ import org.bukkit.ChatColor;
 public class Hub {
     
     List<Game> games;
-    List<HvHPlayer> admins;
+    List<Player> admins;
     Location spawn;
     
     public Hub(Plugin plugin, Player player) {
 	    games = new ArrayList();
 	    admins = new ArrayList();
+        
+        admins.add(player);
         setSpawn(player);
         
         plugin.getServer().getScheduler().runTaskTimer(plugin, () -> tryStartGames(), 50l, 100l);
@@ -36,15 +38,12 @@ public class Hub {
     /**
      * Print a help message to a user
      */
-    private void help(HvHPlayer hplayer, String message) {
-        help(hplayer.player, message);
-    }
     private void help(Player player, String message) {
         player.sendMessage(ChatColor.GOLD + "[HvH Hub] " + ChatColor.RESET + message);
     }
 
     private void tell(String message) {
-        for (HvHPlayer admin : admins) {
+        for (Player admin : admins) {
             help(admin, message);
         }
     }
@@ -62,8 +61,8 @@ public class Hub {
                     setSpawn(admin);
                     return;
                 case "subscribe":
-                    if (!admins.contains(admin)) {
-                        admins.add(admin);
+                    if (!admins.contains(admin.player)) {
+                        admins.add(admin.player);
                         tell("spawn set");
                     }
                     return;
@@ -72,7 +71,7 @@ public class Hub {
             }
         }
 
-        help(admin, "admin commands: spawn/tp, setspawn, subscribe");
+        help(admin, "admin commands: tp, setspawn, subscribe");
     }
     
     public void parseCommand(Player normie, List<String> args) {
