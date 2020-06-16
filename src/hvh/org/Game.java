@@ -68,15 +68,15 @@ class Game {
         STARTS.add(gameSpawn);
 
         // tp players there
-        tpGroup(hunters, loc);
-        tpGroup(hunteds, loc);
+        tpGroup(hunters, gameSpawn);
+        tpGroup(hunteds, gameSpawn);
 
         for (HvHPlayer hunter : hunters) {
-            // set respawn point
-            hunter.player.setBedSpawnLocation(loc);
         }
 
-        // GameEndEvent will call game.end() once hunted dies or wins
+        // GameEndEvent
+        // > ensurs hunters respawn
+        // > calls game.end() if hunted dies
     }
 
     public void end() {
