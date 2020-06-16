@@ -105,8 +105,12 @@ public class Hub {
                     help(player, "unknown command " + cmd);
             }
     }
-    
-    help(player, "available commands: join, spawn, setspawn");
+   
+    String helpMsg = "user commands: join, leave"; 
+    if (player.isOp) {
+        helpMsg += ", admin";
+    }
+    help(player, helpMsg);
 }
     
     public void setSpawn(HvHPlayer hplayer) {
