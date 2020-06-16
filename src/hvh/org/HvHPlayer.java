@@ -46,6 +46,11 @@ public class HvHPlayer {
     }
 
     // SETUP/HELPER ACTIONS
+    //
+
+    public void respawn() {
+        game.respawn(this);
+    }
 
     public void teleport(Location loc) {
         player.teleport(loc);

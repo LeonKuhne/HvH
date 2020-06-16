@@ -34,6 +34,7 @@ public class GameEndEvent implements Listener {
         if (hplayer.isPlaying()) {
             if (hplayer.team.equals("hunter")) {
                 hplayer.help("It's not too late, keep chasing!");
+                hplayer.respawn();
             }
         }   
     }

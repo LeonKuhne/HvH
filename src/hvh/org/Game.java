@@ -33,6 +33,7 @@ class Game {
     private int id;
     private World world;
     private Location hubSpawn;
+    private Location gameSpawn;
     private List<HvHPlayer> hunters;
     private List<HvHPlayer> hunteds;
     
@@ -63,8 +64,8 @@ class Game {
 	    announce("The game is starting");
        
         // find new spawn location
-        Location loc = findStart();
-        STARTS.add(loc);
+        gameSpawn = findStart();
+        STARTS.add(gameSpawn);
 
         // tp players there
         tpGroup(hunters, loc);
@@ -234,6 +235,13 @@ class Game {
                 break; 
         }
         return false;
+    }
+
+    // respawn hunters
+    public void respawn(HvHPlayer hplayer) {
+        if (playing && hplayer.team.equals("hunter")) {
+            hplayer.teleport(gameSpawn);
+        }
     }
 
     public void announce(String message) {
