@@ -130,9 +130,10 @@ class Game {
     private Location randomStart() {
         int x = ThreadLocalRandom.current().nextInt(-SPAWN_RADIUS, SPAWN_RADIUS+1);
         int z = ThreadLocalRandom.current().nextInt(-SPAWN_RADIUS, SPAWN_RADIUS+1);
-        int y = world.getHighestBlockYAt(x, z) + 2;
+        int y = world.getHighestBlockYAt(x, z);
+        System.out.println("found highest y of " + y + " at (" + x + ", " + y + ")");
 
-        return new Location(world, x, y, z);
+        return new Location(world, x, y+2, z);
     }
 
     private void checkReady() {
