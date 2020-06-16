@@ -23,11 +23,11 @@ public class HvHPlayer {
     }
 
     public boolean inGame() {
-        return currGame == null;
+        return currGame != null;
     }
 
     public void help(String message) {
-        player.sendMessage("[HvH] " + message);
+        player.sendMessage(ChatColor.GOLD + "[HvH] " + ChatColor.AQUA + message);
     }
 
     public void teleport(Location loc) {
