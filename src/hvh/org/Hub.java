@@ -89,7 +89,7 @@ public class Hub {
     }
     
     public void parseCommand(Player normie, List<String> args) {
-        HvHPlayer player = new HvHPlayer(player, this);
+        HvHPlayer player = new HvHPlayer(normie, this);
         
         if (args.size() >= 1) {
             String cmd = args.remove(0);
