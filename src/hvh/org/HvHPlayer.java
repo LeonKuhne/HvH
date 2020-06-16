@@ -18,8 +18,8 @@ public class HvHPlayer {
         this.team = "";
         currGame = findGame();
         
-        if (!inGame()) {
-            //this.team = currGame.getTeam(player);
+        if (inGame()) {
+            this.team = currGame.getTeam(player);
         }
     }
 
