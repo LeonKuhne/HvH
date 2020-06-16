@@ -36,7 +36,7 @@ public class HvHPlayer {
 
     public void leaveGame() {
     	for (Game game : games) {
-	        if (game.remove(player) {
+	        if (game.remove(player)) {
                 msg("you left the game");
                 return;
 	        }
