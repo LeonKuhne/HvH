@@ -52,7 +52,7 @@ public class Main extends JavaPlugin {
                 default:
 		            help(player, "Unknown command \"" + cmd + "\"");
                 case "":
-		            help(player, "Type \"/hvh create\" to start");
+		            help(player, "Type " + ChatColor.GREEN + "/hvh create" + ChatColor.RESET + " to start");
                     break;
             }
 
