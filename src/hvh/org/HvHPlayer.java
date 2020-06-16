@@ -28,7 +28,7 @@ public class HvHPlayer {
     }
 
     public void help(String message) {
-        player.sendMessage("[HvH] " + message);
+        this.player.sendMessage("[HvH] " + message);
     }
 
     public void teleport(Location loc) {
