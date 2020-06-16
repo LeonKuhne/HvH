@@ -117,7 +117,7 @@ class Game {
 
     public void tellGroup(List<HvHPlayer> group, String message) {
     	for (HvHPlayer hplayer : group) {
-	        hplayer.player.sendMessage(ChatColor.ORANGE + "[HvH Game] " + ChatColor.RESET + message);
+	        hplayer.player.sendMessage(ChatColor.GOLD + "[HvH Game] " + ChatColor.RESET + message);
 	    }
     }
     

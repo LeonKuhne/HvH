@@ -29,7 +29,7 @@ public class Main extends JavaPlugin {
     }
 
     private void help(Player player, String message) {
-        player.sendMessage(ChatColor.ORANGE + "[HvH] " + ChatColor.RESET + message);
+        player.sendMessage(ChatColor.GOLD + "[HvH] " + ChatColor.RESET + message);
     }
 
     /**

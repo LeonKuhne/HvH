@@ -40,7 +40,7 @@ public class Hub {
         help(hplayer.player, message);
     }
     private void help(Player player, String message) {
-        player.sendMessage(ChatColor.ORANGE + "[HvH Hub] " + ChatColor.RESET + message);
+        player.sendMessage(ChatColor.GOLD + "[HvH Hub] " + ChatColor.RESET + message);
     }
 
     private void tell(String message) {
