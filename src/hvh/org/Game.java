@@ -55,24 +55,24 @@ class Game {
         return hunters.size() < NUM_HUNTER;
     }
     
-    public boolean needsPlayer(HvHPlayer player) {
-        player.tryJoin(game);
-    	switch(player.team) {
-            case "hunter":
-                return needsHunter();
-            case "hunted":
-                return needsHunted();
-            default:
-                return false;
-        }
-    }
-    
     public boolean addPlayer(HvHPlayer player) {
-        if (needsPlayer()) {
-            hunters.add(player);
-	        checkReady();
-            return true;
+        switch(player.team) {
+            case "hunter":
+                if (needsHunter()) {
+                    hunters.add(player);
+	                checkReady();
+                    return true;
+                }
+                break;
+            case "hunted":
+                if (needsHunted()) {
+                    hunteds.add(player);
+	                checkReady();
+                    return true;
+                }
+                break;
         }
+
         return false;
     }
 
