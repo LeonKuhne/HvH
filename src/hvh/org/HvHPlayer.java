@@ -57,12 +57,25 @@ public class HvHPlayer {
     }
     
     private Game findGame() {
-        for (Game game : games) {
-            if (game.needsPlayer(this)) {
-                msg("found game " + game);
-                return game;
-            }
+        switch (team) {
+            case "hunter":
+                for (Game game : games) {
+                    if (game.needsHunter(this)) {
+                        msg("found game " + game);
+                        return game;
+                    }
+                }
+                break;
+            case "hunted":
+                for (Game game : games) {
+                    if (game.needsHunted(this)) {
+                        msg("found game " + game);
+                        return game;
+                    }
+                }
+                break;
         }
+
         return null;
     }
 
