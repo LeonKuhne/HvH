@@ -1,7 +1,7 @@
 import org.bukkit.event.Listener;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.entity.PlayerRespawnEvent;
+import org.bukkit.event.PlayerRespawnEvent;
 
 public class GameEndEvent extends Listener {
     @EventHandler
