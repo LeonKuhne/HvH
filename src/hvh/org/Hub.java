@@ -95,7 +95,12 @@ public class Hub {
                 case "join":
                     // check if player already in game
                     if (player.inGame()) {
-                        help(player, "you are already in a game");
+                        // check if player can switch teams
+                        if (player.switchTeams()) {
+                            help(player, "you have switched teams");
+                        } else {
+                            help(player, "the other team is full, leave and join a new game");
+                        }
                     } else if (args.size() > 0) {
                         // add player to a game
                         String team = args.get(0);                              // team the player wants to be on

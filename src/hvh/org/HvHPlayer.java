@@ -89,6 +89,10 @@ public class HvHPlayer {
         }
     }
 
+    public void switchTeams() {
+        return inGame() && currGame.swapTeams(this);
+    }
+
 
     // UTIL
     //

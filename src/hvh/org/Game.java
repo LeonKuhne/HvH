@@ -166,6 +166,9 @@ class Game {
         return false;
     }
 
+    public boolean remove(HvHPlayer hplayer) {
+        return remove(hplayer.player);
+    }
     public boolean remove(Player player) {
         HvHPlayer hplayer = getHvHPlayer(player);
         if (hplayer != null) {
@@ -200,6 +203,26 @@ class Game {
 
     public String getTeam(Player player) {
         return getHvHPlayer(player).team;
+    }
+
+    public boolean swapTeams(HvHPlayer hplayer) {
+        switch(hplayer.team) {
+            case "hunter":
+                if (needsHunted() && remove(hplayer)) {
+                    hplayer.joinTeam("hunted");
+                    hunteds.addPlayer(hplayer);
+                    return true;
+                }
+                break;
+            case "hunted":
+                if (needsHunter() && remove(hplayer)) {
+                    hplayer.joinTeam("hunter");
+                    hunters.addPlayer(hplayer);
+                    return true;
+                }
+                break; 
+        }
+        return false;
     }
 
     public void announce(String message) {
