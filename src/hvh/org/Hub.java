@@ -28,11 +28,14 @@ public class Hub {
     }
 
     private void tryUpdateGames() {
-    	for (Game game : games) {
+        List<Game> gamesToUpdate = new ArrayList(games);
+        while (gamesToUpdate.size() > 0) {
+            Game game = gamesToUpdate.remove(0);
+            
             // end done games
             if (game.done) {
                 game.close();
-                games.remove(game);
+                games.remove(game); // remove from ORIGINAL list
             }
 
             // start ready games
