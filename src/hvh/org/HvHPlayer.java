@@ -68,7 +68,7 @@ public class HvHPlayer {
 
     public void endGame() {
         if (inGame()) {
-            currGame.end()
+            currGame.end();
         }
     }
 
