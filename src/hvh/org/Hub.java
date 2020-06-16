@@ -127,7 +127,7 @@ public class Hub {
                     parseAdminCommand(player, args);
                     return;
                 case "info":
-                    help(player, player);
+                    help(player, "Your info: " + player.toString());
                     return;
                 case "help":
                     help(player, "Type a command to see its arguments");
