@@ -28,7 +28,7 @@ public class HvHPlayer {
     }
 
     public void help(String message) {
-        player.sendMessage(ChatColor.GOLD + "[HvH] " + ChatColor.AQUA + message);
+        player.sendMessage(ChatColor.GOLD + "[HvH Player] " + ChatColor.AQUA + message);
     }
 
     public void teleport(Location loc) {
@@ -47,14 +47,14 @@ public class HvHPlayer {
 
     public void joinTeam(String team) {
         this.team = team;
-        help("you are a " + team);
+        help("On Team: " + ChatColor.GREEN + team);
     }
 
     public void joinGame() {
        Game game = findOrCreateGame();
        game.addPlayer(this);
        currGame = game;
-       help("you joined the game as a " + team);
+       help("you joined the game");
     }
     
     private Game findGame() {
@@ -90,7 +90,7 @@ public class HvHPlayer {
 	    // create
 	    game = new Game();
 	    games.add(game);
-        help("created new game " + game);
+        help("created new game " + ChatColor.GREEN + game);
         return game;
     }
 }
