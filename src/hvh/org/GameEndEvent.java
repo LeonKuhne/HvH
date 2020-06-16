@@ -16,7 +16,7 @@ public class GameEndEvent implements Listener {
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
         // if player is hunter, end game, otherwise we don't care
-        if (hplayer.playing) {
+        if (hplayer.isPlaying()) {
             if (hplayer.team == "hunted") {
                 player.spigot().respawn();
                 hplayer.endGame();
@@ -30,7 +30,7 @@ public class GameEndEvent implements Listener {
         HvHPlayer hplayer = Main.hub.createGamer(player);
         
         // if player is hunter, say hi
-        if (hplayer.playing) {
+        if (hplayer.isPlaying()) {
             if (hplayer.team == "hunter") {
                 player.help("It's not too late, keep chasing!");
             }
