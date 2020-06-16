@@ -43,14 +43,14 @@ public class Main extends JavaPlugin {
             switch (cmd) {
                 case "create":
                     hub = new Hub(this, player);
-                    help(player, "Hub Created!");
+                    help(player, ChatColor.GREEN + "Hub Created!");
                     break;
                 case "delete":
                     hub = null;
-                    help(player, "Hub deleted. :(");
+                    help(player, ChatColor.GREEN + "Hub deleted. :(");
                     break;
                 default:
-		            help(player, "Unknown command \"' + cmd + '\"");
+		            help(player, "Unknown command \"" + cmd + "\"");
                 case "":
 		            help(player, "Type \"/hvh create\" to start");
                     break;

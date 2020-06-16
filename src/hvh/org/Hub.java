@@ -68,7 +68,7 @@ public class Hub {
                     }
                     return;
                default:
-                    help(admin, "unknown command: " + cmd);
+                    help(admin, "Unknown command: \"" + ChatColor.RED + cmd + "\"");
             }
         }
 
@@ -102,7 +102,7 @@ public class Hub {
                     parseAdminCommand(player, args);
                     return;
                 default:
-                    help(player, "unknown command " + cmd);
+                    help(player, "Unknown command: \"" + ChatColor.RED + cmd + "\"");
             }
     }
    
