@@ -82,7 +82,7 @@ public class HvHPlayer {
 
     public void endGame() {
         if (inGame()) {
-            notify("You lost the game")
+            notify("You lost the game");
             currGame.end();
         }
     }
