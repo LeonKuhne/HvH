@@ -30,7 +30,7 @@ public class GameEndEvent implements Listener {
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         System.out.println("player respawned");
         Player player = event.getPlayer();
-        HvHPlayer hplayer = Main.hub.createGamer(player);
+        HvHPlayer hplayer = new HvHPlayer(player, Main.hub);
         
         // if player is hunter, say hi
         if (hplayer.isPlaying()) {
