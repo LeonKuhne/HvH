@@ -49,7 +49,9 @@ public class HvHPlayer {
     //
 
     public void respawn() {
-        game.respawn(this);
+        if (inGame()) {
+            currGame.respawn(this);
+        }
     }
 
     public void teleport(Location loc) {
