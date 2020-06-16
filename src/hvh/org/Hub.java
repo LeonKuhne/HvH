@@ -93,19 +93,18 @@ public class Hub {
         
             switch (cmd) {
                 case "join":
-                    // check if player already in game
-                    if (player.inGame()) {
-                        // check if player can switch teams
-                        if (player.switchTeams()) {
-                            help(player, "you have switched teams");
+                    if (args.size() > 0) {
+                        String team = args.get(0);
+
+                        if (player.inGame()) {
+                            // switch teams
+                            player.switchTo(team);
+
                         } else {
-                            help(player, "the other team is full, leave and join a new game");
+                            // add player to a game
+                            player.joinTeam(team);
+                            player.joinGame();
                         }
-                    } else if (args.size() > 0) {
-                        // add player to a game
-                        String team = args.get(0);                              // team the player wants to be on
-                        player.joinTeam(team);                                  // set the players team
-                        player.joinGame();                                      // add player to game lobby
 		            } else {
                         help(player, "you must specify a team: " + ChatColor.GREEN + "/hvh join [hunter/hunted]");
 	    	        }
