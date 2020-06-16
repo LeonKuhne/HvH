@@ -36,22 +36,25 @@ public class Main extends JavaPlugin {
      */
     private void hvhHandler(Player player, String[] args) {
         if (hub == null) {
-            String cmd = args.length >= 1 ? args[0] : null; 
+            String cmd = args.length >= 1 ? args[0] : ""; 
             
             // no hub exists, create one
-            if (cmd != null) {
-		        help(player, "Unknown command \"' + cmd + '\"");
-		        help(player, "Type \"/hvh create\" to start");
-            } else if (cmd.equals("create")) {
-                hub = new Hub(this, player);
-                help(player, "Hub Created!");
-            } else if (cmd.equals("delete")) {
-                help(player, "Hub deleted. :(");
-            } else {
-                // have the hub handle commands
-		        help(player, "Type \"/hvh create\" to start");
+            switch (cmd) {
+                case "create":
+                    hub = new Hub(this, player);
+                    help(player, "Hub Created!");
+                    break;
+                case "delete":
+                    hub = null;
+                    help(player, "Hub deleted. :(");
+                    break;
+                default:
+		            help(player, "Unknown command \"' + cmd + '\"");
+                case "":
+		            help(player, "Type \"/hvh create\" to start");
+                    break;
             }
-        
+
         } else {
             // let the hub deal with it
             hub.parseCommand(player, new ArrayList(Arrays.asList(args)));
