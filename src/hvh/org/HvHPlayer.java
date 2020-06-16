@@ -14,11 +14,10 @@ public class HvHPlayer {
     public HvHPlayer(Player player, List<Game> games) {
         this.games = games;
         this.team = "";
+        this.player = player;
 
         currGame = findGame();
-        if (currGame == null) {
-            this.player = player;
-        } else {
+        if (currGame != null) {
             this.team = currGame.getTeam(player);
         }
     }
