@@ -126,6 +126,9 @@ public class Hub {
                 case "admin":
                     parseAdminCommand(player, args);
                     return;
+                case "info":
+                    help(player, player);
+                    return;
                 case "help":
                     help(player, "Type a command to see its arguments");
                     break;
@@ -134,7 +137,7 @@ public class Hub {
             }
         }
 
-        String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave, help"; 
+        String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave, info, help"; 
         if (normie.isOp()) {
             helpMsg += ", admin";
         }
@@ -150,5 +153,9 @@ public class Hub {
 
     public Location getSpawn() {
         return spawn.clone();
+    }
+
+    public String toString() {
+        return "Games: " + games.size();
     }
 }

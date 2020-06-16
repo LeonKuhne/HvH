@@ -172,4 +172,8 @@ public class HvHPlayer {
         help("Created new game " + ChatColor.GREEN + game);
         return game;
     }
+
+    private String toString() {
+        return "[" + hub + "] Game: " + currGame + ", Team: " + team;
+    }
 }
