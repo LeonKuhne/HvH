@@ -173,7 +173,7 @@ public class HvHPlayer {
         return game;
     }
 
-    private String toString() {
+    public String toString() {
         return "[" + hub + "] Game: " + currGame + ", Team: " + team;
     }
 }
