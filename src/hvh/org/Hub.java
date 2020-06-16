@@ -68,7 +68,7 @@ public class Hub {
                     }
                     return;
                default:
-                    help(admin, "unknown command \"" + cmd + "\"");
+                    help(admin, "unknown command: " + cmd);
             }
         }
 
