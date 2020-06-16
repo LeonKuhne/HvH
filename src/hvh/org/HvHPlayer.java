@@ -42,19 +42,19 @@ public class HvHPlayer {
                 return;
 	        }
 	    }
-        msg("you're not in a game");
+        help("you're not in a game");
     }
 
     public void joinTeam(String team) {
         this.team = team;
-        msg("you are a " + team);
+        help("you are a " + team);
     }
 
     public void joinGame() {
        Game game = findOrCreateGame();
        game.addPlayer(this);
        currGame = game;
-       msg("you joined the game as a " + team);
+       help("you joined the game as a " + team);
     }
     
     private Game findGame() {
@@ -62,7 +62,7 @@ public class HvHPlayer {
             case "hunter":
                 for (Game game : games) {
                     if (game.needsHunter()) {
-                        msg("found game " + game);
+                        help("found game " + game);
                         return game;
                     }
                 }
@@ -70,13 +70,13 @@ public class HvHPlayer {
             case "hunted":
                 for (Game game : games) {
                     if (game.needsHunted()) {
-                        msg("found game " + game);
+                        help("found game " + game);
                         return game;
                     }
                 }
                 break;
             default:
-                msg("you need to choose a team first");
+                help("you need to choose a team first");
                 break;
         }
 
@@ -93,7 +93,7 @@ public class HvHPlayer {
 	    // create
 	    game = new Game();
 	    games.add(game);
-        msg("created new game " + game);
+        help("created new game " + game);
         return game;
     }
 }
