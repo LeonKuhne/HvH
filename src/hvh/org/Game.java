@@ -93,7 +93,7 @@ class Game {
     }
 
     public void close() {
-        announce(ChatColor.Red + "Game lobby closed " + ChatColor.GREEN + game);
+        announce(ChatColor.RED + "Game lobby closed " + ChatColor.GREEN + this);
     }
 
     /**
