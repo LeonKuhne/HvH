@@ -18,7 +18,7 @@ public class HvHPlayer {
         if (currGame == null) {
             this.player = player;
         } else {
-            this.team = game.getTeam(player);
+            this.team = currGame.getTeam(player);
         }
     }
 

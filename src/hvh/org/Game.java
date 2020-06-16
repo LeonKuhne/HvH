@@ -76,6 +76,23 @@ class Game {
         return false;
     }
 
+    public String getTeam(Player player) {
+        // check hunters
+        for (HvHPlayer hunter : hunters) {
+            if (player.equals(hunter.player)) {
+                return hunter.team;
+            }
+        }
+        
+        // check hunteds
+        for (HvHPlayer hunted : hunteds) {
+            if (player.equals(hunted.player)) {
+                return hunted.team;
+            }
+        }
+
+        return null;
+    }
 
     public void announce(String message) {
 	    tellGroup(hunters, message);	
