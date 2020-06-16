@@ -58,6 +58,8 @@ public class HvHPlayer {
     }
     
     private Game findGame() {
+        System.out.println(this.team);
+
         switch (this.team) {
             case "hunter":
                 for (Game game : games) {
