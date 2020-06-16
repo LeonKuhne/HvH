@@ -18,7 +18,7 @@ public class HvHPlayer {
         this.player = player;
 
         currGame = findGame();
-        if (currGame != null) {
+        if (!inGame()) {
             this.team = currGame.getTeam(player);
         }
     }
@@ -67,6 +67,7 @@ public class HvHPlayer {
     	for (Game game : hub.games) {
 	        if (game.remove(player)) {
                 notify("You left the game");
+                currGame = null;
                 return;
 	        }
 	    }
@@ -74,7 +75,7 @@ public class HvHPlayer {
     }
 
     public void joinGame() {
-        if (currGame == null) {
+        if (!inGame()) {
             Game game = findOrCreateGame();
             game.addPlayer(this);
             currGame = game;
