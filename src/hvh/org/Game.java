@@ -75,7 +75,19 @@ class Game {
 
         return false;
     }
-    
+
+    public boolean remove(Player player) {
+        HvHPlayer hplayer = getHvHPlayer(player);
+        switch(hplayer.team) {
+            case "hunter":
+                return hunters.remove(hplayer);
+                break;
+            case "hunted":
+                return hunteds.remove(hplayer);
+                break;
+        }
+    }
+
     public HvHPlayer getHvHPlayer(Player player) {
         // check hunters
         for (HvHPlayer hunter : hunters) {

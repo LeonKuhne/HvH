@@ -36,11 +36,12 @@ public class HvHPlayer {
 
     public void leaveGame() {
     	for (Game game : games) {
-	        if (game.hasPlayer(player)) {
-	        	game.remove(player);
+	        if (game.remove(player) {
+                msg("you left the game");
+                return;
 	        }
 	    }
-        msg("you left the game");
+        msg("you're not in a game");
     }
 
     public void joinTeam(String team) {
