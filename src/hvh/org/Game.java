@@ -95,7 +95,7 @@ class Game {
     }
 
     public String getTeam(Player player) {
-        return getHvHPlayer().team;
+        return getHvHPlayer(player).team;
     }
 
     public void announce(String message) {
