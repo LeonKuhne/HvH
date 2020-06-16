@@ -120,7 +120,7 @@ public class HvHPlayer {
     // UTIL
     //
 
-    public void getGame() {
+    public Game getGame() {
         if (inGame()) {
             return currGame;
         }
