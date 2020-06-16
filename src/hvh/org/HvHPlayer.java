@@ -185,5 +185,7 @@ public class HvHPlayer {
         if (!team.equals("")) {
             str += " as a " + team + ".";
         }
+
+        return str;
     }
 }
