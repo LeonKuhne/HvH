@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
      */
     private void hvhHandler(Player player, String[] args) {
         if (hub == null) {
-            String cmd = args.length >= 0 ? args[0] : null; 
+            String cmd = args.length >= 1 ? args[0] : null; 
             
             // no hub exists, create one
             if (cmd != null) {
