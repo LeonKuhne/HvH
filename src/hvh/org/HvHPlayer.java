@@ -16,8 +16,8 @@ public class HvHPlayer {
         this.player = player;
         this.hub = hub;
         this.team = "";
-        /*
         currGame = findGame();
+        /*
         if (!inGame()) {
             this.team = currGame.getTeam(player);
         }*/
