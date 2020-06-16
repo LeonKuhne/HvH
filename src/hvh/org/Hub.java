@@ -116,7 +116,7 @@ public class Hub {
                             player.joinGame();
                         }
 		            } else {
-                        help(player, "you must specify a team: " + ChatColor.GREEN + "/hvh join [hunter/hunted]");
+                        help(player, "You must specify a team: " + ChatColor.GREEN + "/hvh join [hunter/hunted]");
 	    	        }
 		            return;
 	            case "leave":
@@ -125,12 +125,15 @@ public class Hub {
                 case "admin":
                     parseAdminCommand(player, args);
                     return;
+                case "help":
+                    help(player, "Type a command to see its arguments");
+                    break;
                 default:
                     help(player, "Unknown command: " + ChatColor.RED + cmd);
             }
         }
 
-        String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave"; 
+        String helpMsg = "User commands: " + ChatColor.GREEN +  "join, leave, help"; 
         if (normie.isOp()) {
             helpMsg += ", admin";
         }
