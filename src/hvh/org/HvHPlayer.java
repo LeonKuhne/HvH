@@ -40,6 +40,15 @@ public class HvHPlayer {
         player.teleport(loc);
     }
 
+    public void joinTeam(String team) {
+        this.team = team;
+        help("On team: " + ChatColor.GREEN + team);
+    }
+
+
+    // GAME
+    // 
+    
     public void leaveGame() {
     	for (Game game : hub.games) {
 	        if (game.remove(player)) {
@@ -50,18 +59,23 @@ public class HvHPlayer {
         help("You're not in a game");
     }
 
-    public void joinTeam(String team) {
-        this.team = team;
-        help("On team: " + ChatColor.GREEN + team);
+    public void joinGame() {
+        Game game = findOrCreateGame();
+        game.addPlayer(this);
+        currGame = game;
+        help("You joined the game");
     }
 
-    public void joinGame() {
-       Game game = findOrCreateGame();
-       game.addPlayer(this);
-       currGame = game;
-       help("You joined the game");
+    public void endGame() {
+        if (inGame()) {
+            currGame.end()
+        }
     }
-    
+
+
+    // UTIL
+    //
+
     private Game findGame() {
         switch (team) {
             case "hunter":

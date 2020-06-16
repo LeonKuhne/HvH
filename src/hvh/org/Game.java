@@ -82,12 +82,12 @@ class Game {
         resetState();
         done = true;
 
-        // tp players to hub
+        // announce the winner
         announce("The Hunters have won the game!");
         tellGroup(hunters, ChatColor.GREEN + "You won!");
         tellGroup(hunteds, ChatColor.RED + "You lost!");
-
         
+        // tp players to hub
         tpGroup(hunters, hubSpawn);
         tpGroup(hunteds, hubSpawn);
     }
