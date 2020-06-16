@@ -49,7 +49,7 @@ public class HvHPlayer {
     //
 
     public void teleport(Location loc) {
-~        player.teleport(loc);
+        player.teleport(loc);
     }
 
     public boolean joinTeam(String team) {
