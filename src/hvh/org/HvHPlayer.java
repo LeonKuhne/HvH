@@ -36,7 +36,7 @@ public class HvHPlayer {
     //
     
     public void help(String message, ChatColor color) {
-        String prompt = team != null ? "[HvH " + team + "] " : "[HvH -----] ";
+        String prompt = team != "" ? "[HvH " + team + "] " : "[HvH player] ";
         player.sendMessage(ChatColor.GOLD + prompt + color + message);
     }
     
@@ -74,10 +74,14 @@ public class HvHPlayer {
     }
 
     public void joinGame() {
-        Game game = findOrCreateGame();
-        game.addPlayer(this);
-        currGame = game;
-        notify("You joined a game");
+        if (currGame == null) {
+            Game game = findOrCreateGame();
+            game.addPlayer(this);
+            currGame = game;
+            notify("You joined a game");
+        } else {
+            help("You're already in a game");
+        }
     }
 
     public void endGame() {
