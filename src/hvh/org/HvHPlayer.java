@@ -57,10 +57,12 @@ public class HvHPlayer {
                 help("Joined team: " + ChatColor.GREEN + team);
                 this.team = team;
                 return true;
+                break;
             case "hunted":
                 help("Joined team: " + ChatColor.GREEN + team);
                 this.team = team;
                 return true;
+                break;
             defaut:
                 help("Team must be either hunter or hunted");
                 break;
