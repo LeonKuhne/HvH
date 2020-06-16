@@ -38,6 +38,9 @@ public class Hub {
     /**
      * Print a help message to a user
      */
+    private void help(HvHPlayer hplayer, String message) {
+        help(hplayer.player, message);
+    }
     private void help(Player player, String message) {
         player.sendMessage(ChatColor.GOLD + "[HvH Hub] " + ChatColor.RESET + message);
     }
