@@ -21,7 +21,7 @@ class Game {
     public final static int SPAWN_RADIUS = 1000;
     public final static int MAX_DISTANCE = 100;
     public final static int NUM_HUNTED = 1;
-    public final static int NUM_HUNTER = 1;
+    public final static int NUM_HUNTER = 2;
     public static int COUNT = 0;
     public static List<Location> STARTS = new ArrayList();
 
