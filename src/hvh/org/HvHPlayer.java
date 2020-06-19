@@ -137,11 +137,13 @@ public class HvHPlayer {
     }
 
     private void loadFromGame() {
-        for (Game game : hub.games) {
-            HvHPlayer hplayer = game.getHvHPlayer(player);
-            if (hplayer != null && hplayer.inGame()) { 
-                this.team = hplayer.team;
-                this.currGame = game;
+        if (hub != null) {
+            for (Game game : hub.games) {
+                HvHPlayer hplayer = game.getHvHPlayer(player);
+                if (hplayer != null && hplayer.inGame()) { 
+                    this.team = hplayer.team;
+                    this.currGame = game;
+                }
             }
         }
     }
